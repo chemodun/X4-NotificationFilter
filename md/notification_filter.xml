@@ -5,7 +5,7 @@
       <actions>
         <debug_text text="'NotificationFilter: Main'" chance="100" filter="scripts" />
         <do_if value="@player.entity.$notificationFilters == null">
-          <set_value name="@player.entity.$notificationFilters" exact="table[$reputation = 1, $money = 1000]" />
+          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $money = 1000]" />
         </do_if>
       </actions>
     </cue>
@@ -36,6 +36,27 @@
         </do_if>
       </actions>
     </library>
+
+    <library name="Filter_layerMoneyTransfer_Notification_up" purpose="include_actions">
+      <actions>
+        <set_value name="$moneyFilter" exact="@player.entity.$notificationFilters.$money * 1Cr" />
+        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="100" filter="scripts" />
+        <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
+          <show_notification text="$message" sound="ui_mon_eve_money_up" />
+        </do_if>
+      </actions>
+    </library>
+
+    <library name="Filter_layerMoneyTransfer_Notification_down" purpose="include_actions">
+      <actions>
+        <set_value name="$moneyFilter" exact="@player.entity.$notificationFilters.$money * 1Cr" />
+        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="100" filter="scripts" />
+        <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
+          <show_notification text="$message" sound="ui_mon_eve_money_down" />
+        </do_if>
+      </actions>
+    </library>
+
 
   </cues>
 
