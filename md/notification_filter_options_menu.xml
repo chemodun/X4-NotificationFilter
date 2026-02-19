@@ -16,7 +16,7 @@
               param="table[
                 $id      = 'Notification_Filter_options_menu',
                 $columns = 8,
-                $title   = 'Notification Filter Options',
+                $title   = {1972092413, 10000},
                 $onOpen  = Notification_Filter_Options_Menu,
               ]" />
           </actions>
@@ -27,9 +27,8 @@
             <event_cue_signalled />
           </conditions>
           <actions>
-            <debug_text text="'Notification Filter Options: Opening Notification Filter Options Menu'" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Opening Notification Filter Menu'" context="false" filter="scripts" />
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
-            <set_value name="$filters" exact="@player.entity.$notificationFilters" />
             <debug_text
               text="'NotificationFilter Options: Current filters: %s' . [$filters]"
               context="false" filter="scripts" />
@@ -42,58 +41,126 @@
               param="table[
                 $col = 1,
                 $colSpan = 8,
-                $text = {1972092412, 90001},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                  $id = 'pilot_academy_notifications',
-                  $checked = @$commonData.$notificationsEnabled,
-                  $col = 2,
-                  $width = 'Helper.standardButtonHeight',
-                  $height = 'Helper.standardButtonHeight',
-                  $onClick = Pilot_Academy_On_Checkbox_Change
-                ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 3,
-                $colSpan = 6,
-                $text = {1001, 7743},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                  $id = 'pilot_academy_logbook',
-                  $checked = @$commonData.$logbookEnabled,
-                  $col = 2,
-                  $width = 'Helper.standardButtonHeight',
-                  $height = 'Helper.standardButtonHeight',
-                  $onClick = Pilot_Academy_On_Checkbox_Change
-                ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 3,
-                $colSpan = 6,
-                $text = {1001, 5700},
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = {1972092413, 10100},
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
                 $colSpan = 5,
-                $text = {1972092412, 90009},
+                $text = {1972092413, 10110},
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
               param="table[
+                $id = 'Notification_Filter_Reputation',
                 $col = 6,
                 $colSpan = 3,
-                $options = $debugLevelOptions,
-                $startOption = $debugLevelCurrentIndex,
-                $onDropDownConfirmed = Pilot_Academy_Handle_Debug_Level,
-                ]" />
+                $options = [
+                  table[ $text = {1972092413, 10111}, $value = 0 ],
+                  table[ $text = {1972092413, 10112}, $value = 1 ],
+                  table[ $text = {1972092413, 10113}, $value = 2 ],
+                  table[ $text = {1972092413, 10114}, $value = 5 ],
+                  table[ $text = {1972092413, 10115}, $value = 10 ]
+                ],
+                $startOption = $filters.$reputation,
+                $onDropDownConfirmed = Handle_Dropdown_Changed,
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 5,
+                $text = {1972092413, 10120},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
+              param="table[
+                $id = 'Notification_Filter_Reputation_Logbook',
+                $col = 6,
+                $colSpan = 3,
+                $options = [
+                  table[ $text = {1972092413, 10111}, $value = 0 ],
+                  table[ $text = {1972092413, 10112}, $value = 1 ],
+                  table[ $text = {1972092413, 10113}, $value = 2 ],
+                  table[ $text = {1972092413, 10114}, $value = 5 ],
+                  table[ $text = {1972092413, 10115}, $value = 10 ]
+                ],
+                $startOption = $filters.$reputationLogbook,
+                $onDropDownConfirmed = Handle_Dropdown_Changed,
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 8,
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = {1972092413, 10200},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 8,
+                $halign = 'left',
+                $text = {1972092413, 10210},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
+              param="table[
+                $id = 'Notification_Filter_Money',
+                $col = 1,
+                $colSpan = 8,
+                $min = 0,
+                $max = 100000000,
+                $step = 1000,
+                $start = $filters.$money,
+                $suffix = ' %s.'.[{1001, 101}],
+                $onSliderCellConfirm = Handle_Slider_Changed,
+              ]" />
             <remove_value name="$filters" />
-            <remove_value name="$debugLevelOptions" />
-            <remove_value name="$debugLevelCurrentIndex" />
+          </actions>
+        </cue>
+
+        <cue name="Handle_Dropdown_Changed" instantiate="true" version="1">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <include_actions ref="md.Notification_Filter.DefaultFilters" />
+            <debug_text text="'NotificationFilter Options: Dropdown %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$option.$value, $filters]" context="false" filter="scripts" />
+            <set_value name="$id" exact="event.param.$id" />
+            <set_value name="$value" exact="event.param.$option.$value" />
+            <do_if value="$id == 'Notification_Filter_Reputation'">
+              <set_value name="$filters.$reputation" exact="$value" />
+            </do_if>
+            <do_elseif value="$id == 'Notification_Filter_Reputation_Logbook'">
+              <set_value name="$filters.$reputationLogbook" exact="$value" />
+            </do_elseif>
+            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" context="false" filter="scripts" />
+            <remove_value name="$id" />
+            <remove_value name="$value" />
+            <remove_value name="$filters" />
+          </actions>
+        </cue>
+
+        <cue name="Handle_Slider_Changed" instantiate="true" version="1">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <include_actions ref="md.Notification_Filter.DefaultFilters" />
+            <debug_text text="'NotificationFilter Options: Slider %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$value, $filters]" context="false" filter="scripts" />
+            <set_value name="$id" exact="event.param.$id" />
+            <set_value name="$value" exact="event.param.$value" />
+            <do_if value="$id == 'Notification_Filter_Money'">
+              <set_value name="$filters.$money" exact="$value" />
+            </do_if>
+            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" context="false" filter="scripts" />
+            <remove_value name="$id" />
+            <remove_value name="$value" />
+            <remove_value name="$filters" />
           </actions>
         </cue>
 

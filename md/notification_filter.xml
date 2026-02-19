@@ -13,7 +13,7 @@
     <library name="DefaultFilters" purpose="include_actions">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
-          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLog = 1, $money = 1000]" />
+          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 1000]" />
         </do_if>
         <set_value name="$filters" exact="@player.entity.$notificationFilters" />
       </actions>
@@ -46,7 +46,7 @@
     <library name="Filter_BaseRelationChanged_Logbook" purpose="include_actions">
       <actions>
         <include_actions ref="DefaultFilters" />
-        <set_value name="$relationFilter" exact="$filters.$reputationLog" />
+        <set_value name="$relationFilter" exact="$filters.$reputationLogbook" />
         <do_if value="abs($oldnum - $newnum) gt $relationFilter">
           <write_to_logbook category="general" title="$title" faction="event.param" text="$logtext" />
         </do_if>
