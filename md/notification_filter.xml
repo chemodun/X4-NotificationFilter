@@ -1,0 +1,42 @@
+<mdscript name="Notification_Filter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cues>
+
+    <cue name="Main" version="1">
+      <actions>
+        <debug_text text="'NotificationFilter: Main'" chance="100" filter="scripts" />
+        <do_if value="@player.entity.$notificationFilters == null">
+          <set_value name="@player.entity.$notificationFilters" exact="table[$reputation = 1, $money = 1000]" />
+        </do_if>
+      </actions>
+    </cue>
+
+    <library name="Filter_BaseRelationChanged_Notification_up" purpose="include_actions">
+      <actions>
+        <set_value name="$relationFilter" exact="@player.entity.$notificationFilters.$reputation" />
+        <do_if value="abs($oldnum - $newnum) gt $relationFilter ">
+          <show_notification text="$tickertext" sound="ui_mon_eve_notoriety_up" />
+        </do_if>
+      </actions>
+    </library>
+
+    <library name="Filter_BaseRelationChanged_Notification_down" purpose="include_actions">
+      <actions>
+        <set_value name="$relationFilter" exact="@player.entity.$notificationFilters.$reputation" />
+        <do_if value="abs($oldnum - $newnum) gt $relationFilter ">
+          <show_notification text="$tickertext" sound="ui_mon_eve_notoriety_down" />
+        </do_if>
+      </actions>
+    </library>
+
+    <library name="Filter_BaseRelationChanged_Logbook" purpose="include_actions">
+      <actions>
+        <set_value name="$relationFilter" exact="@player.entity.$notificationFilters.$reputation" />
+        <do_if value="$oldnum != $newnum">
+          <write_to_logbook category="general" title="$title" faction="event.param" text="$logtext" />
+        </do_if>
+      </actions>
+    </library>
+
+  </cues>
+
+</mdscript>

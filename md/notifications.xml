@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<diff>
+  <remove sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_if[@value='event.param2.{1} gt event.param2.{2}']/do_if[@value='notification.reputation_gained.active']/show_notification[@text='$tickertext']" />
+  <add sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_if[@value='event.param2.{1} gt event.param2.{2}']/do_if[@value='notification.reputation_gained.active']">
+    <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Notification_up" />
+  </add>
+  <remove sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_else/do_if[@value='notification.reputation_lost.active']/show_notification[@text='$tickertext']" />
+  <add sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_else/do_if[@value='notification.reputation_lost.active']">
+    <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Notification_down" />
+  </add>
+  <remove sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/write_to_logbook[@category='general']" />
+  <add sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions">
+    <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Logbook" />
+  </add>
+</diff>

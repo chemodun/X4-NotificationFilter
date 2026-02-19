@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content
+  id=""
+  name="Notification Filter"
+  author="Chem O`Dun"
+  version="80001"
+  date="2026-02-19"
+  save="false"
+  lastupdate=""
+  description="Filters out unwanted notifications.">
+  <!-- Russian -->
+  <text language="7" description="Фильтрует нежелательные уведомления."></text>
+  <!-- French -->
+  <text language="33" description="Filtre les notifications indésirables."></text>
+  <!-- Spanish -->
+  <text language="34" description="Filtra las notificaciones no deseadas."></text>
+  <!-- Italian -->
+  <text language="39" description="Filtra le notifiche indesiderate."></text>
+  <!-- Czech -->
+  <text language="42" description="Filtruje nechtěná upozornění."></text>
+  <!-- English -->
+  <text language="44" description="Filters out unwanted notifications."></text>
+  <!-- Polish -->
+  <text language="48" description="Filtruje niechciane powiadomienia."></text>
+  <!-- German -->
+  <text language="49" description="Filtert unerwünschte Benachrichtigungen."></text>
+  <!-- Portuguese -->
+  <text language="55" description="Filtra notificações indesejadas."></text>
+  <!-- Japanese -->
+  <text language="81" description="不要な通知をフィルタリングします。"></text>
+  <!-- Korean -->
+  <text language="82" description="원하지 않는 알림을 필터링합니다."></text>
+  <!-- Chinese Simplified -->
+  <text language="86" description="过滤不需要的通知。"></text>
+  <!-- Chinese Traditional -->
+  <text language="88" description="過濾不需要的通知。"></text>
+  <!-- Turkish -->
+  <text language="90" description="İstenmeyen bildirimleri filtreler."></text>
+  <!-- Ukrainian -->
+  <text language="380" description="Фільтрує небажані сповіщення."></text>
+  <dependency version="800"></dependency>
+</content>
