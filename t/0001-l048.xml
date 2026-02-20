@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Polish -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Filtr Powiadomień" descr="Filtr Powiadomień">
+      <t id="1">Filtr Powiadomień</t>
+      <t id="2">Tłumi mało istotne powiadomienia na podstawie konfigurowalnych progów</t>
+      <t id="10000">Filtr Powiadomień</t>
+      <t id="10100">Minimalne Zmiany Relacji:</t>
+      <t id="10110">Dla powiadomienia ticker:</t>
+      <t id="10111">0 - przepuść wszystkie zmiany</t>
+      <t id="10112">1 punkt lub więcej</t>
+      <t id="10113">2 punkty lub więcej</t>
+      <t id="10114">5 punktów lub więcej</t>
+      <t id="10115">10 punktów lub więcej</t>
+      <t id="10120">Dla wpisu w dzienniku:</t>
+      <t id="10200">Transakcje Pieniężne:</t>
+      <t id="10210">Minimalna kwota dla powiadomienia ticker:</t>
+      <t id="19900">Inne:</t>
+      <t id="19910">Debugowanie</t>
+    </page>
+  </add>
+</diff>

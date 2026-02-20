@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Turkish -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Bildirim Filtresi" descr="Bildirim Filtresi">
+      <t id="1">Bildirim Filtresi</t>
+      <t id="2">Yapılandırılabilir eşiklere dayalı olarak düşük önemdeki bildirimleri bastırır</t>
+      <t id="10000">Bildirim Filtresi</t>
+      <t id="10100">İlişki Minimum Değişiklikler:</t>
+      <t id="10110">Ticker bildirimi için:</t>
+      <t id="10111">0 - tüm değişiklikleri geçir</t>
+      <t id="10112">1 puan veya daha fazla</t>
+      <t id="10113">2 puan veya daha fazla</t>
+      <t id="10114">5 puan veya daha fazla</t>
+      <t id="10115">10 puan veya daha fazla</t>
+      <t id="10120">Günlük girişi için:</t>
+      <t id="10200">Para İşlemleri:</t>
+      <t id="10210">Ticker bildirimi için minimum miktar:</t>
+      <t id="19900">Diğer:</t>
+      <t id="19910">Hata Ayıklama</t>
+    </page>
+  </add>
+</diff>

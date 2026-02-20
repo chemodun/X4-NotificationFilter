@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Italian -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Filtro Notifiche" descr="Filtro Notifiche">
+      <t id="1">Filtro Notifiche</t>
+      <t id="2">Sopprime le notifiche di bassa importanza in base a soglie configurabili</t>
+      <t id="10000">Filtro Notifiche</t>
+      <t id="10100">Modifiche Minime Relazione:</t>
+      <t id="10110">Per notifica ticker:</t>
+      <t id="10111">0 - passa tutte le modifiche</t>
+      <t id="10112">1 punto o più</t>
+      <t id="10113">2 punti o più</t>
+      <t id="10114">5 punti o più</t>
+      <t id="10115">10 punti o più</t>
+      <t id="10120">Per voce di registro:</t>
+      <t id="10200">Transazioni Monetarie:</t>
+      <t id="10210">Importo minimo per notifica ticker:</t>
+      <t id="19900">Altro:</t>
+      <t id="19910">Debug</t>
+    </page>
+  </add>
+</diff>

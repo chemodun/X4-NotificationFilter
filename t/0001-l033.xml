@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- French -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Filtre de Notification" descr="Filtre de Notification">
+      <t id="1">Filtre de Notification</t>
+      <t id="2">Supprime les notifications de faible importance en fonction de seuils configurables</t>
+      <t id="10000">Filtre de Notification</t>
+      <t id="10100">Changements Minimum de Relation:</t>
+      <t id="10110">Pour la notification ticker:</t>
+      <t id="10111">0 - passer tous les changements</t>
+      <t id="10112">1 point ou plus</t>
+      <t id="10113">2 points ou plus</t>
+      <t id="10114">5 points ou plus</t>
+      <t id="10115">10 points ou plus</t>
+      <t id="10120">Pour l'entrée du journal:</t>
+      <t id="10200">Transactions Monétaires:</t>
+      <t id="10210">Montant minimum pour la notification ticker:</t>
+      <t id="19900">Autre:</t>
+      <t id="19910">Débogage</t>
+    </page>
+  </add>
+</diff>

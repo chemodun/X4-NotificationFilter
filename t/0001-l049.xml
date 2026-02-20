@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- German -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Benachrichtigungsfilter" descr="Benachrichtigungsfilter">
+      <t id="1">Benachrichtigungsfilter</t>
+      <t id="2">Unterdrückt unwichtige Benachrichtigungen basierend auf konfigurierbaren Schwellenwerten</t>
+      <t id="10000">Benachrichtigungsfilter</t>
+      <t id="10100">Minimale Beziehungsänderungen:</t>
+      <t id="10110">Für Ticker-Benachrichtigung:</t>
+      <t id="10111">0 - alle Änderungen durchlassen</t>
+      <t id="10112">1 Punkt oder mehr</t>
+      <t id="10113">2 Punkte oder mehr</t>
+      <t id="10114">5 Punkte oder mehr</t>
+      <t id="10115">10 Punkte oder mehr</t>
+      <t id="10120">Für Logbucheintrag:</t>
+      <t id="10200">Geldtransaktionen:</t>
+      <t id="10210">Mindestbetrag für Ticker-Benachrichtigung:</t>
+      <t id="19900">Sonstiges:</t>
+      <t id="19910">Debuggen</t>
+    </page>
+  </add>
+</diff>

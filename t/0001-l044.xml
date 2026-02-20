@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English -->
+<diff>
+  <add sel="/language">
+    <page id="1972092413" voice="no" title="Notification Filter" descr="Notification Filter">
+      <t id="1">Notification Filter</t>
+      <t id="2">Suppresses low-significance notifications based on configurable thresholds</t>
+      <t id="10000">Notification Filter</t>
+      <t id="10100">Relation Minimum Changes:</t>
+      <t id="10110">For ticker notification:</t>
+      <t id="10111">0 - pass all changes</t>
+      <t id="10112">1 point or more</t>
+      <t id="10113">2 points or more</t>
+      <t id="10114">5 points or more</t>
+      <t id="10115">10 points or more</t>
+      <t id="10120">For Logbook entry:</t>
+      <t id="10200">Money Transactions:</t>
+      <t id="10210">Minimum amount for ticker notification:</t>
+      <t id="19900">Other:</t>
+      <t id="19910">Debug</t>
+    </page>
+  </add>
+</diff>
