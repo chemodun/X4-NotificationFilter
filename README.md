@@ -72,7 +72,7 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 
 ## Changelog
 
-### [8.00.00] - 2026-02-??
+### [8.00.01] - 2026-02-20
 
 - **Added**
   - Initial public version
