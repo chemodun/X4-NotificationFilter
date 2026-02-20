@@ -15,6 +15,8 @@
       <t id="10120">For Logbook entry:</t>
       <t id="10200">Money Transactions:</t>
       <t id="10210">Minimum amount for ticker notification:</t>
+      <t id="19900">Other:</t>
+      <t id="19910">Debug</t>
     </page>
   </add>
 </diff>
