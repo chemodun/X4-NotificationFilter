@@ -33,7 +33,7 @@ After installation, please open the `Extension Option` menu.
 Currently possible:
 
 - Set minimum changes of `Relation` to be displayed in `Notification Ticker` and `Logbook` (Separately).
-- Set a minimum amount of `Money` transaction to be displayed n `Notification Ticker`.
+- Set a minimum amount of `Money` transaction to be displayed in `Notification Ticker`.
 
 ![Notification Filter](docs/images/notification_filter.png)
 
