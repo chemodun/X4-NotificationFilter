@@ -24,7 +24,7 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$relationFilter" exact="$filters.$reputation" />
-        <debug_text text="'NotificationFilter: Relation changed: Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s.' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) g $relationFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <debug_text text="'NotificationFilter: Relation changed: Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s.' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) ge $relationFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
         <do_if value="abs($oldnum - $newnum) ge $relationFilter ">
           <debug_text text="'NotificationFilter: Showing notification. Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s. Text: %s' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) gt $relationFilter, $tickertext]" chance="@$notificationFiltersDebugChance" filter="scripts" />
           <show_notification text="$tickertext" sound="ui_mon_eve_notoriety_up" />
