@@ -22,7 +22,7 @@ This mod introduces filtering functionality for some type of Notifications shown
 ## Installation
 
 - **Steam Workshop**: [Pilot Academy: Ranks and Relations](https://steamcommunity.com/sharedfiles/filedetails/?id=)
-- **Nexus Mods**: [Pilot Academy: Ranks and Relations](https://www.nexusmods.com/x4foundations/mods/)
+- **Nexus Mods**: [Pilot Academy: Ranks and Relations](https://www.nexusmods.com/x4foundations/mods/1985)
 
 ## Usage
 
