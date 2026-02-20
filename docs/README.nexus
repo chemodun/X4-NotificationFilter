@@ -35,7 +35,7 @@ After installation, please open the [b]Extension Option[/b] menu.
 Currently possible:
 [list]
 [*] Set minimum changes of [b]Relation[/b] to be displayed in [b]Notification Ticker[/b] and [b]Logbook[/b] (Separately).
-[*] Set a minimum amount of [b]Money[/b] transaction to be displayed n [b]Notification Ticker[/b].
+[*] Set a minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification Ticker[/b].
 [/list]
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/notification_filter.png[/img]
 
