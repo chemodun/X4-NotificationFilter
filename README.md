@@ -47,7 +47,7 @@ There are two different `Dropdowns` to define the minimum change of `Relation` t
 - `5 points or more`: Only changes of `Relation` equal or higher than 5 points will be visible.
 - `10 points or more`: Only changes of `Relation` equal or higher than 10 points will be visible.
 
-
+![Notification Filter Relation Dropdown](docs/images/notification_filter_relation_dropdown.png)
 
 ## Credits
 
