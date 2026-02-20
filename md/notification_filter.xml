@@ -4,7 +4,7 @@
     <cue name="Main" version="1">
       <actions>
         <debug_text text="'NotificationFilter: Main'" chance="100" filter="scripts" />
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <remove_value name="$filters" />
       </actions>
     </cue>
@@ -13,17 +13,20 @@
     <library name="DefaultFilters" purpose="include_actions">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
-          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 1000]" />
+          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 100000, $debugChance = 0]" />
         </do_if>
         <set_value name="$filters" exact="@player.entity.$notificationFilters" />
+        <set_value name="$notificationFiltersDebugChance" exact="$filters.$debugChance" />
       </actions>
     </library>
 
     <library name="Filter_BaseRelationChanged_Notification_up" purpose="include_actions">
       <actions>
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$relationFilter" exact="$filters.$reputation" />
-        <do_if value="abs($oldnum - $newnum) gt $relationFilter ">
+        <debug_text text="'NotificationFilter: Relation changed: Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s.' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) g $relationFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="abs($oldnum - $newnum) ge $relationFilter ">
+          <debug_text text="'NotificationFilter: Showing notification. Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s. Text: %s' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) gt $relationFilter, $tickertext]" chance="@$notificationFiltersDebugChance" filter="scripts" />
           <show_notification text="$tickertext" sound="ui_mon_eve_notoriety_up" />
         </do_if>
         <remove_value name="$filters" />
@@ -33,9 +36,11 @@
 
     <library name="Filter_BaseRelationChanged_Notification_down" purpose="include_actions">
       <actions>
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$relationFilter" exact="$filters.$reputation" />
-        <do_if value="abs($oldnum - $newnum) gt $relationFilter">
+        <debug_text text="'NotificationFilter: Relation changed: Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s.' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) ge $relationFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="abs($oldnum - $newnum) ge $relationFilter">
+          <debug_text text="'NotificationFilter: Showing notification. Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s. Text: %s' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) ge $relationFilter, $tickertext]" chance="@$notificationFiltersDebugChance" filter="scripts" />
           <show_notification text="$tickertext" sound="ui_mon_eve_notoriety_down" />
         </do_if>
         <remove_value name="$filters" />
@@ -45,9 +50,11 @@
 
     <library name="Filter_BaseRelationChanged_Logbook" purpose="include_actions">
       <actions>
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$relationFilter" exact="$filters.$reputationLogbook" />
-        <do_if value="abs($oldnum - $newnum) gt $relationFilter">
+        <debug_text text="'NotificationFilter: Logbook relation changed: Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s.' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) ge $relationFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="abs($oldnum - $newnum) ge $relationFilter">
+          <debug_text text="'NotificationFilter: Writing to logbook. Old: %s, New: %s, Filter: %s. Abc: %s. Compare: %s. Title: %s. Text: %s' . [$oldnum, $newnum, $relationFilter, abs($oldnum - $newnum), abs($oldnum - $newnum) ge $relationFilter, $title, $logtext]" chance="@$notificationFiltersDebugChance" filter="scripts" />
           <write_to_logbook category="general" title="$title" faction="event.param" text="$logtext" />
         </do_if>
         <remove_value name="$filters" />
@@ -57,9 +64,9 @@
 
     <library name="Filter_layerMoneyTransfer_Notification_up" purpose="include_actions">
       <actions>
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$moneyFilter" exact="$filters.$money * 1Cr" />
-        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="100" filter="scripts" />
+        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
         <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
           <show_notification text="$message" sound="ui_mon_eve_money_up" />
         </do_if>
@@ -70,9 +77,9 @@
 
     <library name="Filter_layerMoneyTransfer_Notification_down" purpose="include_actions">
       <actions>
-        <include_actions ref="DefaultFilters" />
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$moneyFilter" exact="$filters.$money * 1Cr" />
-        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="100" filter="scripts" />
+        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
         <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
           <show_notification text="$message" sound="ui_mon_eve_money_down" />
         </do_if>
