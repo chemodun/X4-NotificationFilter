@@ -4,13 +4,8 @@ This mod introduces filtering functionality for some type of Notifications shown
 
 [h2][b]Features[/b][/h2]
 [list]
-[*] [b]Intuitive UI[/b]: Easily manage the filter values.
-[*] [b]Simple to install[/b]: Limited dependency - only on [b]Mod Support APIs[/b].
-[/list]
-[h2][b]Limitations[/b][/h2]
-[list]
-[*] The Academy currently only supports small (S-class) ships.
-[*] Trades used for the training process are non-profitable and uses only one item of selected ware per transaction.
+[*] Set minimum changes of [b]Relation[/b] to be displayed in [b]Notification Ticker[/b] and [b]Logbook[/b] (Separately).
+[*] Set a minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification Ticker[/b].
 [/list]
 [h2][b]Requirements[/b][/h2]
 [list]
@@ -32,11 +27,6 @@ After installation, please open the [b]Extension Option[/b] menu.
 
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/extension_options.png[/img]
 
-Currently possible:
-[list]
-[*] Set minimum changes of [b]Relation[/b] to be displayed in [b]Notification Ticker[/b] and [b]Logbook[/b] (Separately).
-[*] Set a minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification Ticker[/b].
-[/list]
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/notification_filter.png[/img]
 
 [h2]Relation Minimum Changes[/h2]
