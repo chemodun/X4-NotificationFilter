@@ -4,8 +4,8 @@ This mod introduces filtering functionality for some type of Notifications shown
 
 ## Features
 
-- **Intuitive UI**: Easily manage the filter values
-- **Simple**: Limited dependency - only on **Mod Support APIs**.
+- **Intuitive UI**: Easily manage the filter values.
+- **Simple to install**: Limited dependency - only on **Mod Support APIs**.
 
 ## Limitations
 
@@ -48,6 +48,17 @@ There are two different `Dropdowns` to define the minimum change of `Relation` t
 - `10 points or more`: Only changes of `Relation` equal or higher than 10 points will be visible.
 
 ![Notification Filter Relation Dropdown](docs/images/notification_filter_relation_dropdown.png)
+
+### Money Minimum Changes
+
+There is a `Slider` to define the minimum amount of `Money` transaction to be displayed in `Notification ticker`.
+
+Acceptable values are between `0` and `100,000,000` credits with `1000` credits step.
+Zero value means that all transactions will be visible as in the `vanilla` game.
+
+### Other
+
+There is also a `Debug` checkbox to enable debug messages for the notifications that are being processed by the filter.
 
 ## Credits
 
