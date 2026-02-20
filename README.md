@@ -4,13 +4,8 @@ This mod introduces filtering functionality for some type of Notifications shown
 
 ## Features
 
-- **Intuitive UI**: Easily manage the filter values.
-- **Simple to install**: Limited dependency - only on **Mod Support APIs**.
-
-## Limitations
-
-- The Academy currently only supports small (S-class) ships.
-- Trades used for the training process are non-profitable and uses only one item of selected ware per transaction.
+- Set minimum changes of `Relation` to be displayed in `Notification Ticker` and `Logbook` (Separately).
+- Set a minimum amount of `Money` transaction to be displayed in `Notification Ticker`.
 
 ## Requirements
 
@@ -29,11 +24,6 @@ This mod introduces filtering functionality for some type of Notifications shown
 After installation, please open the `Extension Option` menu.
 
 ![Extension options menu with Notification Filter item.](docs/images/extension_options.png)
-
-Currently possible:
-
-- Set minimum changes of `Relation` to be displayed in `Notification Ticker` and `Logbook` (Separately).
-- Set a minimum amount of `Money` transaction to be displayed in `Notification Ticker`.
 
 ![Notification Filter](docs/images/notification_filter.png)
 
