@@ -65,7 +65,7 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 ### [8.00.02] - 2026-02-20
 
 - **Fixed**
-  - Some debug message
+  - Some debug messages
 
 ### [8.00.01] - 2026-02-20
 
