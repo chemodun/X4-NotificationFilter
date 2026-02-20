@@ -4,8 +4,8 @@ This mod introduces filtering functionality for some type of Notifications shown
 
 [size=3][u][b]Features[/b][/u][/size]
 [list]
-[*] [b]Intuitive UI[/b]: Easily manage the filter values
-[*] [b]Simple[/b]: Limited dependency - only on [b]Mod Support APIs[/b].
+[*] [b]Intuitive UI[/b]: Easily manage the filter values.
+[*] [b]Simple to install[/b]: Limited dependency - only on [b]Mod Support APIs[/b].
 [/list]
 [size=3][u][b]Limitations[/b][/u][/size]
 [list]
@@ -50,6 +50,17 @@ There are two different [b]Dropdowns[/b] to define the minimum change of [b]Rela
 [*] [b]10 points or more[/b]: Only changes of [b]Relation[/b] equal or higher than 10 points will be visible.
 [/list]
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/notification_filter_relation_dropdown.png[/img]
+
+[size=3][u][i]Money Minimum Changes[/i][/u][/size]
+
+There is a [b]Slider[/b] to define the minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification ticker[/b].
+
+Acceptable values are between [b]0[/b] and [b]100,000,000[/b] credits with [b]1000[/b] credits step.
+Zero value means that all transactions will be visible as in the [b]vanilla[/b] game.
+
+[size=3][u][i]Other[/i][/u][/size]
+
+There is also a [b]Debug[/b] checkbox to enable debug messages for the notifications that are being processed by the filter.
 
 [size=3][u][b]Credits[/b][/u][/size]
 [list]
