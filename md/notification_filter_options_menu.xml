@@ -10,7 +10,7 @@
             <event_cue_signalled cue="md.Simple_Menu_API.Reloaded" />
           </conditions>
           <actions>
-            <debug_text text="'NotificationFilter Options: Registering Options Menus'" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Registering Options Menus'" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Register_Options_Menu"
               param="table[
@@ -27,15 +27,11 @@
             <event_cue_signalled />
           </conditions>
           <actions>
-            <debug_text text="'NotificationFilter Options: Opening Notification Filter Menu'" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Opening Notification Filter Menu'" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
             <debug_text
               text="'NotificationFilter Options: Current filters: %s' . [$filters]"
-              context="false" filter="scripts" />
-            <set_value name="$debugLevelCurrentIndex" exact="$debugLevelIndexes.indexof.{$commonData.$debugLevel}" />
-            <do_if value="$debugLevelCurrentIndex == 0">
-              <set_value name="$debugLevelCurrentIndex" exact="1" />
-            </do_if>
+              chance="@$notificationFiltersDebugChance" filter="scripts" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
@@ -46,6 +42,9 @@
                 $text = {1972092413, 10100},
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <set_value name="$reputation" exact="$filters.$reputation" />
+            <include_actions ref="GetCurrentReputationOptionsAndIndex" />
+            <debug_text text="'NotificationFilter Options: Reputation filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
@@ -57,16 +56,13 @@
                 $id = 'Notification_Filter_Reputation',
                 $col = 6,
                 $colSpan = 3,
-                $options = [
-                  table[ $text = {1972092413, 10111}, $value = 0 ],
-                  table[ $text = {1972092413, 10112}, $value = 1 ],
-                  table[ $text = {1972092413, 10113}, $value = 2 ],
-                  table[ $text = {1972092413, 10114}, $value = 5 ],
-                  table[ $text = {1972092413, 10115}, $value = 10 ]
-                ],
-                $startOption = $filters.$reputation,
+                $options = $reputationOptions,
+                $startOption = $reputationIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
               ]" />
+            <set_value name="$reputation" exact="$filters.$reputationLogbook" />
+            <include_actions ref="GetCurrentReputationOptionsAndIndex" />
+            <debug_text text="'NotificationFilter Options: Reputation Logbook filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
@@ -79,14 +75,8 @@
                 $id = 'Notification_Filter_Reputation_Logbook',
                 $col = 6,
                 $colSpan = 3,
-                $options = [
-                  table[ $text = {1972092413, 10111}, $value = 0 ],
-                  table[ $text = {1972092413, 10112}, $value = 1 ],
-                  table[ $text = {1972092413, 10113}, $value = 2 ],
-                  table[ $text = {1972092413, 10114}, $value = 5 ],
-                  table[ $text = {1972092413, 10115}, $value = 10 ]
-                ],
-                $startOption = $filters.$reputationLogbook,
+                $options = $reputationOptions,
+                $startOption = $reputationIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
@@ -119,6 +109,33 @@
                 $suffix = ' %s.'.[{1001, 101}],
                 $onSliderCellConfirm = Handle_Slider_Changed,
               ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 8,
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = {1972092413, 19900},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_Debug',
+                $checked = @$filters.$debugChance gt 0,
+                $col = 1,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 2,
+                $colSpan = 7,
+                $halign = 'left',
+                $text = {1972092413, 19910},
+              ]" />
             <remove_value name="$filters" />
           </actions>
         </cue>
@@ -129,7 +146,7 @@
           </conditions>
           <actions>
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
-            <debug_text text="'NotificationFilter Options: Dropdown %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$option.$value, $filters]" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Dropdown %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$option.$value, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <set_value name="$id" exact="event.param.$id" />
             <set_value name="$value" exact="event.param.$option.$value" />
             <do_if value="$id == 'Notification_Filter_Reputation'">
@@ -138,7 +155,7 @@
             <do_elseif value="$id == 'Notification_Filter_Reputation_Logbook'">
               <set_value name="$filters.$reputationLogbook" exact="$value" />
             </do_elseif>
-            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />
             <remove_value name="$value" />
             <remove_value name="$filters" />
@@ -151,18 +168,66 @@
           </conditions>
           <actions>
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
-            <debug_text text="'NotificationFilter Options: Slider %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$value, $filters]" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Slider %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$value, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <set_value name="$id" exact="event.param.$id" />
             <set_value name="$value" exact="event.param.$value" />
             <do_if value="$id == 'Notification_Filter_Money'">
               <set_value name="$filters.$money" exact="$value" />
             </do_if>
-            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" context="false" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />
             <remove_value name="$value" />
             <remove_value name="$filters" />
           </actions>
         </cue>
+
+        <cue name="Handle_Checkbox_Changed" instantiate="true" version="1">
+          <conditions>
+            <event_cue_signalled />
+          </conditions>
+          <actions>
+            <include_actions ref="md.Notification_Filter.DefaultFilters" />
+            <debug_text text="'NotificationFilter Options: Checkbox %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$checked, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <set_value name="$id" exact="event.param.$id" />
+            <set_value name="$value" exact="if @event.param.$checked then 100 else 0" />
+            <do_if value="$id == 'Notification_Filter_Debug'">
+              <set_value name="$filters.$debugChance" exact="$value" />
+              <set_value name="$notificationFiltersDebugChance" exact="$value" />
+            </do_if>
+            <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <remove_value name="$id" />
+            <remove_value name="$value" />
+            <remove_value name="$filters" />
+          </actions>
+        </cue>
+
+        <library name="GetCurrentReputationOptionsAndIndex" purpose="include_actions">
+          <actions>
+            <set_value name="$reputationOptions" exact="[
+              table[ $text = {1972092413, 10111}, $value = 0 ],
+              table[ $text = {1972092413, 10112}, $value = 1 ],
+              table[ $text = {1972092413, 10113}, $value = 2 ],
+              table[ $text = {1972092413, 10114}, $value = 5 ],
+              table[ $text = {1972092413, 10115}, $value = 10 ]
+            ]" />
+            <set_value name="$reputationIndex" exact="1" />
+            <do_if value="$reputation == 0">
+              <set_value name="$reputationIndex" exact="1" />
+            </do_if>
+            <do_elseif value="$reputation == 1">
+              <set_value name="$reputationIndex" exact="2" />
+            </do_elseif>
+            <do_elseif value="$reputation == 2">
+              <set_value name="$reputationIndex" exact="3" />
+            </do_elseif>
+            <do_elseif value="$reputation == 5">
+              <set_value name="$reputationIndex" exact="4" />
+            </do_elseif>
+            <do_elseif value="$reputation == 10">
+              <set_value name="$reputationIndex" exact="5" />
+            </do_elseif>
+          </actions>
+        </library>
 
       </cues>
     </cue>
