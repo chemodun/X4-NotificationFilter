@@ -64,6 +64,13 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [/list]
 [size=130][u]Changelog[/u][/size]
 
+[size=125][u][8.00.02] - 2026-02-20[/u][/size]
+[list]
+[*] [b]Fixed[/b]
+[list]
+[*] Some debug message
+[/list]
+[/list]
 [size=125][u][8.00.01] - 2026-02-20[/u][/size]
 [list]
 [*] [b]Added[/b]
