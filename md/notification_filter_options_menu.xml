@@ -32,6 +32,14 @@
             <debug_text
               text="'NotificationFilter Options: Current filters: %s' . [$filters]"
               chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <include_actions ref="Menu_Section_Reputation" />
+            <include_actions ref="Menu_Section_Money" />
+            <remove_value name="$filters" />
+          </actions>
+        </cue>
+
+        <library name="Menu_Section_Reputation" purpose="include_actions">
+          <actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
@@ -41,10 +49,10 @@
                 $halign = 'center',
                 $text = {1972092413, 10100},
               ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <set_value name="$reputation" exact="$filters.$reputation" />
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
@@ -79,6 +87,11 @@
                 $startOption = $reputationIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
               ]" />
+          </actions>
+        </library>
+
+        <library name="Menu_Section_Money" purpose="include_actions">
+          <actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
@@ -109,6 +122,42 @@
                 $suffix = ' %s.'.[{1001, 101}],
                 $onSliderCellConfirm = Handle_Slider_Changed,
               ]" />
+          </actions>
+        </library>
+
+        <library name="Menu_Section_CraftingProgress" purpose="include_actions">
+          <actions>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 8,
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = {1972092413, 10300},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_CraftingProgress',
+                $checked = @$filters.$craftingProgress == true,
+                $col = 1,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 2,
+                $colSpan = 7,
+                $halign = 'left',
+                $text = {1972092413, 10310},
+              ]" />
+          </actions>
+        </library>
+
+        <library name="Menu_Section_Other" purpose="include_actions">
+          <actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
@@ -136,9 +185,8 @@
                 $halign = 'left',
                 $text = {1972092413, 19910},
               ]" />
-            <remove_value name="$filters" />
           </actions>
-        </cue>
+        </library>
 
         <cue name="Handle_Dropdown_Changed" instantiate="true" version="1">
           <conditions>
@@ -193,6 +241,9 @@
             <do_if value="$id == 'Notification_Filter_Debug'">
               <set_value name="$filters.$debugChance" exact="$value" />
               <set_value name="$notificationFiltersDebugChance" exact="$value" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_CraftingProgress'">
+              <set_value name="$filters.$craftingProgress" exact="event.param.$checked" />
             </do_if>
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />

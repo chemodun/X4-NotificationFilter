@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <diff>
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_if[@value='event.param.iscrafting']/do_if[@value='$products.count']/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerOpensCrate']/actions/do_if[@value='event.param.wares.count != 0']/do_all[@exact='$wares.count']/do_if[@value='$wares.{$i}.iscrafting']/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
   <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_if[@value='event.param2.{1} gt event.param2.{2}']/do_if[@value='notification.reputation_gained.active']/show_notification[@text='$tickertext']">
     <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Notification_up" />
   </replace>

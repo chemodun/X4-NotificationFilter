@@ -13,7 +13,7 @@
     <library name="DefaultFilters" purpose="include_actions">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
-          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 100000, $debugChance = 0]" />
+          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 100000, $craftingProgress = false, $debugChance = 0]" />
         </do_if>
         <set_value name="$filters" exact="@player.entity.$notificationFilters" />
         <set_value name="$notificationFiltersDebugChance" exact="$filters.$debugChance" />
@@ -88,6 +88,18 @@
       </actions>
     </library>
 
+    <library name="Filter_NotificationCraftingProgress" purpose="include_actions">
+      <actions>
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
+        <set_value name="$craftingProgress" exact="$filters.$craftingProgress * 1Cr" />
+        <debug_text text="'NotificationFilter: Crafting progress: Products count: %s.' . [@$products.count]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="$craftingProgress != true">
+          <include_actions ref="md.Notifications.NotificationCraftingProgress" />
+        </do_if>
+        <remove_value name="$filters" />
+        <remove_value name="$craftingProgress" />
+      </actions>
+    </library>
 
   </cues>
 
