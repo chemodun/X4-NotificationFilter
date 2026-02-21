@@ -34,6 +34,9 @@
               chance="@$notificationFiltersDebugChance" filter="scripts" />
             <include_actions ref="Menu_Section_Reputation" />
             <include_actions ref="Menu_Section_Money" />
+            <include_actions ref="Menu_Section_CraftingProgress" />
+            <include_actions ref="Menu_Section_InsufficientFunds" />
+            <include_actions ref="Menu_Section_Other" />
             <remove_value name="$filters" />
           </actions>
         </cue>
@@ -156,6 +159,56 @@
           </actions>
         </library>
 
+        <library name="Menu_Section_InsufficientFunds" purpose="include_actions">
+          <actions>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 8,
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = {1972092413, 10400},
+              ]" />
+
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_InsufficientFunds',
+                $checked = @$filters.$insufficientFunds == true,
+                $col = 1,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 2,
+                $colSpan = 7,
+                $halign = 'left',
+                $text = {1972092413, 10410},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_InsufficientFunds_Logbook',
+                $checked = @$filters.$insufficientFundsLogbook == true,
+                $col = 1,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 2,
+                $colSpan = 7,
+                $halign = 'left',
+                $text = {1972092413, 10420},
+              ]" />
+          </actions>
+        </library>
+
+
         <library name="Menu_Section_Other" purpose="include_actions">
           <actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
@@ -244,6 +297,12 @@
             </do_if>
             <do_if value="$id == 'Notification_Filter_CraftingProgress'">
               <set_value name="$filters.$craftingProgress" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_InsufficientFunds'">
+              <set_value name="$filters.$insufficientFunds" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_InsufficientFunds_Logbook'">
+              <set_value name="$filters.$insufficientFundsLogbook" exact="event.param.$checked" />
             </do_if>
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />

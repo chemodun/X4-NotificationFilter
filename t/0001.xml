@@ -17,6 +17,9 @@
       <t id="10210">Minimum amount for ticker notification:</t>
       <t id="10300">Crafting Progress:</t>
       <t id="10310">Suppress crafting progress notifications</t>
+      <t id="10400">Station Insufficient Funds:</t>
+      <t id="10410">Suppress notifications</t>
+      <t id="10420">Suppress logbook entries</t>
       <t id="19900">Other:</t>
       <t id="19910">Debug</t>
     </page>

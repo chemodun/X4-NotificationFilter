@@ -13,7 +13,15 @@
     <library name="DefaultFilters" purpose="include_actions">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
-          <set_value name="player.entity.$notificationFilters" exact="table[$reputation = 1, $reputationLogbook = 1, $money = 100000, $craftingProgress = false, $debugChance = 0]" />
+          <set_value name="player.entity.$notificationFilters" exact="table[
+            $reputation = 1,
+            $reputationLogbook = 1,
+            $money = 100000,
+            $craftingProgress = false,
+            $insufficientFunds = false,
+            $insufficientFundsLogbook = false,
+            $debugChance = 0
+          ]" />
         </do_if>
         <set_value name="$filters" exact="@player.entity.$notificationFilters" />
         <set_value name="$notificationFiltersDebugChance" exact="$filters.$debugChance" />
