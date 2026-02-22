@@ -27,6 +27,10 @@ After installation, please open the [b]Extension Option[/b] menu.
 
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/extension_options.png[/img]
 
+[size=3][u][i]Notification Filter Menu[/i][/u][/size]
+
+Then, select the [b]Notification Filter[/b] item to open the filter menu.
+
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/notification_filter.png[/img]
 
 [size=3][u][i]Relation Minimum Changes[/i][/u][/size]
@@ -48,6 +52,17 @@ There is a [b]Slider[/b] to define the minimum amount of [b]Money[/b] transactio
 Acceptable values are between [b]0[/b] and [b]100,000,000[/b] credits with [b]1000[/b] credits step.
 Zero value means that all transactions will be visible as in the [b]vanilla[/b] game.
 
+[size=3][u][i]Crafting Progress[/i][/u][/size]
+
+There is a [b]Checkbox[/b] to disable notifications related to [b]Crafting Progress[/b] in the [b]Notification ticker[/b] and [b]Logbook[/b].
+
+There is an example of such notification in the image below:
+[img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/crafting_progress.png[/img]
+
+[size=3][u][i]Station Insufficient Funds[/i][/u][/size]
+
+There are two [b]Checkboxes[/b] to disable notifications related to [b]Station Insufficient Funds[/b] in the [b]Notification ticker[/b] and [b]Logbook[/b].
+
 [size=3][u][i]Other[/i][/u][/size]
 
 There is also a [b]Debug[/b] checkbox to enable debug messages for the notifications that are being processed by the filter.
@@ -64,6 +79,13 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [/list]
 [size=3][u][b]Changelog[/b][/u][/size]
 
+[size=3][u][i][8.00.03] - 2026-02-22[/i][/u][/size]
+[list]
+[*] [b]Added[/b]
+[list]
+[*] New filters for [b]Crafting Progress[/b] and [b]Station Insufficient Funds[/b] notifications.
+[/list]
+[/list]
 [size=3][u][i][8.00.02] - 2026-02-20[/i][/u][/size]
 [list]
 [*] [b]Fixed[/b]
