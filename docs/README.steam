@@ -6,6 +6,8 @@ This mod introduces filtering functionality for some type of Notifications shown
 [list]
 [*] Set minimum changes of [b]Relation[/b] to be displayed in [b]Notification Ticker[/b] and [b]Logbook[/b] (Separately).
 [*] Set a minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification Ticker[/b].
+[*] Enable/Disable notifications related to [b]Crafting Progress[/b] in the [b]Notification Ticker[/b].
+[*] Enable/Disable notifications related to [b]Station Insufficient Funds[/b] in the [b]Notification Ticker[/b] and [b]Logbook[/b].
 [/list]
 [h2][b]Requirements[/b][/h2]
 [list]
