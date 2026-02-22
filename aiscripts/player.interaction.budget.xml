@@ -3,11 +3,14 @@
   <remove sel="/aiscript/attention[@min='unknown']/actions/write_to_logbook[@category='upkeep']" />
   <remove sel="/aiscript/attention[@min='unknown']/actions/show_notification[@text=&quot;[{1015, 28}, '', this.container.name, '', this.sector.name]&quot;]" />
   <add sel="/aiscript/attention[@min='unknown']/actions">
-    <do_if value="@player.entity.$notificationFilters.$insufficientFundsLogbook != true">
+    <set_value name="$filters" exact="@player.entity.$notificationFilters" />
+    <debug_text text="'NotificationFilter: Insufficient funds notification triggered. Notification filter: %s, Logbook filter: %s. Log text: %s' .         [$filters.$insufficientFunds, $filters.$insufficientFundsLogbook, $logtext]" chance="$filters.$debugChance" filter="scripts" />
+    <do_if value="$filters.$insufficientFundsLogbook != true">
       <write_to_logbook category="upkeep" object="this.container" title="$logtext" interaction="showonmap" />
     </do_if>
-    <do_if value="@player.entity.$notificationFilters.$insufficientFunds != true">
+    <do_if value="$filters.$insufficientFunds != true">
       <show_notification text="[{1015, 28}, '', this.container.name, '', this.sector.name]" />
     </do_if>
+    <remove_value name="$filters" />
   </add>
 </diff>
