@@ -25,6 +25,10 @@ After installation, please open the `Extension Option` menu.
 
 ![Extension options menu with Notification Filter item.](docs/images/extension_options.png)
 
+### Notification Filter Menu
+
+Then, select the `Notification Filter` item to open the filter menu.
+
 ![Notification Filter](docs/images/notification_filter.png)
 
 ### Relation Minimum Changes
@@ -46,6 +50,17 @@ There is a `Slider` to define the minimum amount of `Money` transaction to be di
 Acceptable values are between `0` and `100,000,000` credits with `1000` credits step.
 Zero value means that all transactions will be visible as in the `vanilla` game.
 
+### Crafting Progress
+
+There is a `Checkbox` to disable notifications related to `Crafting Progress` in the `Notification ticker` and `Logbook`.
+
+There is an example of such notification in the image below:
+![Crafting Progress Notification](docs/images/crafting_progress.png)
+
+### Station Insufficient Funds
+
+There are two `Checkboxes` to disable notifications related to `Station Insufficient Funds` in the `Notification ticker` and `Logbook`.
+
 ### Other
 
 There is also a `Debug` checkbox to enable debug messages for the notifications that are being processed by the filter.
@@ -61,6 +76,11 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 - [SirNukes](https://next.nexusmods.com/profile/sirnukes?gameId=2659) — for the `Mod Support APIs` that power the UI hooks.
 
 ## Changelog
+
+### [8.00.03] - 2026-02-22
+
+- **Added**
+  - New filters for `Crafting Progress` and `Station Insufficient Funds` notifications.
 
 ### [8.00.02] - 2026-02-20
 
