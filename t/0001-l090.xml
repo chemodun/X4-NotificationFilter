@@ -16,6 +16,11 @@
       <t id="10120">Günlük girişi için:</t>
       <t id="10200">Para İşlemleri:</t>
       <t id="10210">Ticker bildirimi için minimum miktar:</t>
+      <t id="10300">Üretim İlerlemesi:</t>
+      <t id="10310">Üretim ilerlemesi bildirimlerini devre dışı bırak</t>
+      <t id="10400">İstasyon Yetersiz Fon:</t>
+      <t id="10410">Bildirimleri devre dışı bırak</t>
+      <t id="10420">Günlük girişlerini devre dışı bırak</t>
       <t id="19900">Diğer:</t>
       <t id="19910">Hata Ayıklama</t>
     </page>

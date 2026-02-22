@@ -16,6 +16,11 @@
       <t id="10120">Pro záznam v deníku:</t>
       <t id="10200">Peněžní Transakce:</t>
       <t id="10210">Minimální částka pro ticker upozornění:</t>
+      <t id="10300">Průběh Výroby:</t>
+      <t id="10310">Zakázat upozornění na průběh výroby</t>
+      <t id="10400">Nedostatečné Finanční Prostředky Stanice:</t>
+      <t id="10410">Zakázat upozornění</t>
+      <t id="10420">Zakázat záznamy v deníku</t>
       <t id="19900">Ostatní:</t>
       <t id="19910">Ladění</t>
     </page>

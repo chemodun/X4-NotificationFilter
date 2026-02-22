@@ -16,6 +16,11 @@
       <t id="10120">Per voce di registro:</t>
       <t id="10200">Transazioni Monetarie:</t>
       <t id="10210">Importo minimo per notifica ticker:</t>
+      <t id="10300">Progresso Fabbricazione:</t>
+      <t id="10310">Disabilita notifiche di progresso fabbricazione</t>
+      <t id="10400">Fondi Insufficienti Stazione:</t>
+      <t id="10410">Disabilita notifiche</t>
+      <t id="10420">Disabilita voci di registro</t>
       <t id="19900">Altro:</t>
       <t id="19910">Debug</t>
     </page>

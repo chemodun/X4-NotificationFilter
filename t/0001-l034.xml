@@ -16,6 +16,11 @@
       <t id="10120">Para entrada de registro:</t>
       <t id="10200">Transacciones Monetarias:</t>
       <t id="10210">Cantidad mínima para notificación ticker:</t>
+      <t id="10300">Progreso de Fabricación:</t>
+      <t id="10310">Desactivar notificaciones de progreso de fabricación</t>
+      <t id="10400">Fondos Insuficientes de Estación:</t>
+      <t id="10410">Desactivar notificaciones</t>
+      <t id="10420">Desactivar entradas de registro</t>
       <t id="19900">Otro:</t>
       <t id="19910">Depuración</t>
     </page>

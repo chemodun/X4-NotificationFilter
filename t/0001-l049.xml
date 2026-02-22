@@ -16,6 +16,11 @@
       <t id="10120">Für Logbucheintrag:</t>
       <t id="10200">Geldtransaktionen:</t>
       <t id="10210">Mindestbetrag für Ticker-Benachrichtigung:</t>
+      <t id="10300">Herstellungsfortschritt:</t>
+      <t id="10310">Herstellungsfortschritt-Benachrichtigungen deaktivieren</t>
+      <t id="10400">Station mit unzureichenden Mitteln:</t>
+      <t id="10410">Benachrichtigungen deaktivieren</t>
+      <t id="10420">Logbucheinträge deaktivieren</t>
       <t id="19900">Sonstiges:</t>
       <t id="19910">Debuggen</t>
     </page>

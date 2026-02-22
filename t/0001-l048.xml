@@ -16,6 +16,11 @@
       <t id="10120">Dla wpisu w dzienniku:</t>
       <t id="10200">Transakcje Pieniężne:</t>
       <t id="10210">Minimalna kwota dla powiadomienia ticker:</t>
+      <t id="10300">Postęp Wytwarzania:</t>
+      <t id="10310">Wyłącz powiadomienia o postępie wytwarzania</t>
+      <t id="10400">Niewystarczające Środki Stacji:</t>
+      <t id="10410">Wyłącz powiadomienia</t>
+      <t id="10420">Wyłącz wpisy w dzienniku</t>
       <t id="19900">Inne:</t>
       <t id="19910">Debugowanie</t>
     </page>
