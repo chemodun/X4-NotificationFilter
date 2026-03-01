@@ -41,17 +41,12 @@
           </actions>
         </cue>
 
-        <library name="Menu_Section_Reputation" purpose="include_actions">
+        <library name="Menu_Section_Reputation" purpose="include_actions" version="2">
           <actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 8,
-                $titleColor = 'Color.text_normal',
-                $halign = 'center',
-                $text = {1972092413, 10100},
-              ]" />
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10100}" />
+            </run_actions>
             <set_value name="$reputation" exact="$filters.$reputation" />
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
@@ -93,17 +88,12 @@
           </actions>
         </library>
 
-        <library name="Menu_Section_Money" purpose="include_actions">
+        <library name="Menu_Section_Money" purpose="include_actions" version="2">
           <actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 8,
-                $titleColor = 'Color.text_normal',
-                $halign = 'center',
-                $text = {1972092413, 10200},
-              ]" />
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10200}" />
+            </run_actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
@@ -128,17 +118,12 @@
           </actions>
         </library>
 
-        <library name="Menu_Section_CraftingProgress" purpose="include_actions">
+        <library name="Menu_Section_CraftingProgress" purpose="include_actions" version="2">
           <actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 8,
-                $titleColor = 'Color.text_normal',
-                $halign = 'center',
-                $text = {1972092413, 10300},
-              ]" />
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10300}" />
+            </run_actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
               param="table[
@@ -159,18 +144,12 @@
           </actions>
         </library>
 
-        <library name="Menu_Section_InsufficientFunds" purpose="include_actions">
+        <library name="Menu_Section_InsufficientFunds" purpose="include_actions" version="2">
           <actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 8,
-                $titleColor = 'Color.text_normal',
-                $halign = 'center',
-                $text = {1972092413, 10400},
-              ]" />
-
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10400}" />
+            </run_actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
               param="table[
@@ -209,18 +188,12 @@
         </library>
 
 
-        <library name="Menu_Section_Other" purpose="include_actions">
+        <library name="Menu_Section_Other" purpose="include_actions" version="2">
           <actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 8,
-                $titleColor = 'Color.text_normal',
-                $halign = 'center',
-                $text = {1972092413, 19900},
-              ]" />
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 19900}" />
+            </run_actions>
             <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
               param="table[
@@ -310,6 +283,39 @@
             <remove_value name="$filters" />
           </actions>
         </cue>
+
+        <library name="Add_Title_Row" purpose="run_actions">
+          <params>
+            <param name="title" />
+          </params>
+          <actions>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" param="table[$selectable = false]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 12,
+                $fontsize = 'Helper.titleFontSize',
+                $titleColor = 'Color.text_normal',
+                $halign = 'center',
+                $text = $title,
+              ]" />
+            <include_actions ref="Add_Empty_Row" />
+          </actions>
+        </library>
+
+        <library name="Add_Empty_Row" purpose="include_actions">
+          <actions>
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" param="table[$selectable = false]" />
+            <signal_cue_instantly
+              cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 12,
+                $height = 'Helper.borderSize',
+                $fontsize = 'Helper.borderSize',
+                ]" />
+          </actions>
+        </library>
 
         <library name="GetCurrentReputationOptionsAndIndex" purpose="include_actions">
           <actions>
