@@ -94,7 +94,7 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [list]
 [*] [b]Added[/b]
 [list]
-[*] New filter for [b]Ship Constructed[/b] logbook entries based on the cost of the constructed ship.
+[*] New filter for [b]Ship Constructed[/b] logbook entries based on the size or cost of the constructed ship.
 [/list]
 [/list]
 [h2][8.00.03] - 2026-02-22[/h2]
