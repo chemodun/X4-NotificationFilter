@@ -51,41 +51,27 @@
             <set_value name="$reputation" exact="$filters.$reputation" />
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 7,
-                $text = {1972092413, 10110},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
-              param="table[
-                $id = 'Notification_Filter_Reputation',
-                $col = 8,
-                $colSpan = 5,
-                $options = $reputationOptions,
-                $startOption = $reputationIndex,
-                $onDropDownConfirmed = Handle_Dropdown_Changed,
-              ]" />
+            <run_actions ref="Add_Dropdown">
+              <param name="id" value="'Notification_Filter_Reputation'" />
+              <param name="options" value="$reputationOptions" />
+              <param name="currentIndex" value="$reputationIndex" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="7" />
+              <param name="text" value="{1972092413, 10110}" />
+              <param name="dropdownColSpan" value="5" />
+            </run_actions>
             <set_value name="$reputation" exact="$filters.$reputationLogbook" />
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation Logbook filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 7,
-                $text = {1972092413, 10120},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
-              param="table[
-                $id = 'Notification_Filter_Reputation_Logbook',
-                $col = 8,
-                $colSpan = 5,
-                $options = $reputationOptions,
-                $startOption = $reputationIndex,
-                $onDropDownConfirmed = Handle_Dropdown_Changed,
-              ]" />
+            <run_actions ref="Add_Dropdown">
+              <param name="id" value="'Notification_Filter_Reputation_Logbook'" />
+              <param name="options" value="$reputationOptions" />
+              <param name="currentIndex" value="$reputationIndex" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="7" />
+              <param name="text" value="{1972092413, 10120}" />
+              <param name="dropdownColSpan" value="5" />
+            </run_actions>
           </actions>
         </library>
 
@@ -95,27 +81,16 @@
             <run_actions ref="Add_Title_Row">
               <param name="title" value="{1972092413, 10200}" />
             </run_actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 12,
-                $halign = 'left',
-                $text = {1972092413, 10210},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
-              param="table[
-                $id = 'Notification_Filter_Money',
-                $col = 1,
-                $colSpan = 12,
-                $min = 0,
-                $max = 100000000,
-                $step = 1000,
-                $start = $filters.$money,
-                $suffix = ' %s.'.[{1001, 101}],
-                $onSliderCellConfirm = Handle_Slider_Changed,
-              ]" />
+            <run_actions ref="Add_Slider">
+              <param name="id" value="'Notification_Filter_Money'" />
+              <param name="min" value="0" />
+              <param name="max" value="100000000" />
+              <param name="step" value="1000" />
+              <param name="start" value="@$filters.$money" />
+              <param name="text" value="{1972092413, 10210}" />
+              <param name="suffix" value="' %s.'.[{1001, 101}]" />
+              <param name="colSpan" value="12" />
+            </run_actions>
           </actions>
         </library>
 
@@ -125,25 +100,13 @@
             <run_actions ref="Add_Title_Row">
               <param name="title" value="{1972092413, 10300}" />
             </run_actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_CraftingProgress',
-                $checked = @$filters.$craftingProgress == true,
-                $col = 1,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 2,
-                $colSpan = 11,
-                $halign = 'left',
-                $text = {1972092413, 10310},
-              ]" />
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_CraftingProgress'" />
+              <param name="checked" value="@$filters.$craftingProgress == true" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="11" />
+              <param name="text" value="{1972092413, 10310}" />
+            </run_actions>
           </actions>
         </library>
 
@@ -153,43 +116,20 @@
             <run_actions ref="Add_Title_Row">
               <param name="title" value="{1972092413, 10400}" />
             </run_actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_InsufficientFunds',
-                $checked = @$filters.$insufficientFunds == true,
-                $col = 1,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 2,
-                $colSpan = 5,
-                $halign = 'left',
-                $text = {1972092413, 10410},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_InsufficientFunds_Logbook',
-                $checked = @$filters.$insufficientFundsLogbook == true,
-                $col = 7,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 8,
-                $colSpan = 5,
-                $halign = 'left',
-                $text = {1972092413, 10420},
-              ]" />
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_InsufficientFunds'" />
+              <param name="checked" value="@$filters.$insufficientFunds == true" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10410}" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_InsufficientFunds_Logbook'" />
+              <param name="checked" value="@$filters.$insufficientFundsLogbook == true" />
+              <param name="col" value="7" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10420}" />
+            </run_actions>
           </actions>
         </library>
 
@@ -208,100 +148,41 @@
                 $halign = 'left',
                 $text = {1972092413, 10510},
               ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_ShipConstructed_S',
-                $checked = @$filters.$shipConstructedClassS == true,
-                $col = 4,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 5,
-                $colSpan = 1,
-                $halign = 'left',
-                $text = {1001, 11000},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_ShipConstructed_M',
-                $checked = @$filters.$shipConstructedClassM == true,
-                $col = 6,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 7,
-                $colSpan = 1,
-                $halign = 'left',
-                $text = {1001, 11001},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_ShipConstructed_L',
-                $checked = @$filters.$shipConstructedClassL == true,
-                $col = 8,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 9,
-                $colSpan = 1,
-                $halign = 'left',
-                $text = {1001, 11002},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_ShipConstructed_XL',
-                $checked = @$filters.$shipConstructedClassXL == true,
-                $col = 10,
-                $colSpan = 1,
-                $x = 20,
-                $width = 'Helper.standardButtonHeight',
-                $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 11,
-                $colSpan = 1,
-                $halign = 'left',
-                $text = {1001, 11003},
-              ]" />
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_ShipConstructed_S'" />
+              <param name="checked" value="@$filters.$shipConstructedClassS == true" />
+              <param name="col" value="4" />
+              <param name="text" value="{1001, 11000}" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_ShipConstructed_M'" />
+              <param name="checked" value="@$filters.$shipConstructedClassM == true" />
+              <param name="col" value="6" />
+              <param name="text" value="{1001, 11001}" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_ShipConstructed_L'" />
+              <param name="checked" value="@$filters.$shipConstructedClassL == true" />
+              <param name="col" value="8" />
+              <param name="text" value="{1001, 11002}" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_ShipConstructed_XL'" />
+              <param name="checked" value="@$filters.$shipConstructedClassXL == true" />
+              <param name="col" value="10" />
+              <param name="text" value="{1001, 11003}" />
+            </run_actions>
             <include_actions ref="Add_Empty_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 1,
-                $colSpan = 12,
-                $halign = 'left',
-                $text = {1972092413, 10560},
-              ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
-              param="table[
-                $id = 'Notification_Filter_ShipConstructed_Money',
-                $col = 1,
-                $colSpan = 12,
-                $min = 0,
-                $max = 100000000,
-                $step = 1000,
-                $start = @$filters.$shipConstructedMoney,
-                $suffix = ' %s.'.[{1001, 101}],
-                $onSliderCellConfirm = Handle_Slider_Changed,
-              ]" />
+            <run_actions ref="Add_Slider">
+              <param name="id" value="'Notification_Filter_ShipConstructed_Cost'" />
+              <param name="min" value="0" />
+              <param name="max" value="100000000" />
+              <param name="step" value="1000" />
+              <param name="start" value="@$filters.$shipConstructedMoney" />
+              <param name="text" value="{1972092413, 10560}" />
+              <param name="suffix" value="' %s.'.[{1001, 101}]" />
+              <param name="colSpan" value="12" />
+            </run_actions>
           </actions>
         </library>
 
@@ -311,25 +192,122 @@
             <run_actions ref="Add_Title_Row">
               <param name="title" value="{1972092413, 19900}" />
             </run_actions>
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
-              param="table[
-                $id = 'Notification_Filter_Debug',
-                $checked = @$filters.$debugChance gt 0,
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'Notification_Filter_Debug'" />
+              <param name="checked" value="@$filters.$debugChance gt 0" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="11" />
+              <param name="text" value="{1972092413, 19910}" />
+            </run_actions>
+          </actions>
+        </library>
+
+        <library name="Add_Dropdown" purpose="run_actions">
+          <params>
+            <param name="id" />
+            <param name="options" />
+            <param name="currentIndex" default="1" />
+            <param name="col" default="1" />
+            <param name="textColSpan" default="1" />
+            <param name="text" default="''" />
+            <param name="dropdownColSpan" default="1" />
+          </params>
+          <actions>
+            <do_if value="@$id != null and @$options != null and $currentIndex? and $col? and $textColSpan? and @$text != null and $dropdownColSpan?">
+              <do_if value="@$col == 1">
+                <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+              </do_if>
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+                param="table[
+                $col = @$col,
+                $colSpan = @$textColSpan,
+                $halign = 'left',
+                $text = @$text,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
+                param="table[
+                $id = @$id,
+                $col = @$col + @$textColSpan,
+                $colSpan = @$dropdownColSpan,
+                $options = @$options,
+                $startOption = @$currentIndex,
+                $onDropDownConfirmed = Handle_Dropdown_Changed,
+              ]" />
+            </do_if>
+          </actions>
+        </library>
+
+        <library name="Add_Slider" purpose="run_actions">
+          <params>
+            <param name="id" />
+            <param name="text" default="''" />
+            <param name="min" default="0" />
+            <param name="max" default="100" />
+            <param name="step" default="1" />
+            <param name="start" default="0" />
+            <param name="suffix" default="''" />
+            <param name="colSpan" default="1" />
+          </params>
+          <actions>
+            <do_if value="@$id != null and $min? and $max? and $step? and $start?">
+              <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" param="table[$selectable = false]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+                param="table[
                 $col = 1,
+                $colSpan = @$colSpan,
+                $halign = 'left',
+                $text = @$text,
+              ]" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
+                param="table[
+                $id = @$id,
+                $col = 1,
+                $colSpan = @$colSpan,
+                $min = @$min,
+                $max = @$max,
+                $step = @$step,
+                $start = @$start,
+                $suffix = @$suffix,
+                $onSliderCellConfirm = Handle_Slider_Changed,
+              ]" />
+            </do_if>
+          </actions>
+
+        </library>
+
+        <library name="Add_CheckBox" purpose="run_actions">
+          <params>
+            <param name="id" />
+            <param name="checked" default="false" />
+            <param name="col" default="1" />
+            <param name="textColSpan" default="1" />
+            <param name="text" default="''" />
+          </params>
+          <actions>
+            <do_if value="@$id != null and $checked? and $col? and $textColSpan? and @$text != null">
+              <do_if value="@$col == 1">
+                <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+              </do_if>
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+                param="table[
+                $id = @$id,
+                $checked = @$checked,
+                $col = @$col,
                 $colSpan = 1,
                 $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
                 $onClick = Handle_Checkbox_Changed
               ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
-              param="table[
-                $col = 2,
-                $colSpan = 11,
+              <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+                param="table[
+                $col = @$col + 1,
+                $colSpan = @$textColSpan,
                 $halign = 'left',
-                $text = {1972092413, 19910},
+                $text = @$text,
               ]" />
+            </do_if>
           </actions>
         </library>
 
