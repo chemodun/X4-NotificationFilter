@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<diff>
+  <add sel="/aiscript/interrupts" pos="prepend">
+    <library>
+      <actions name="Filter_Notification_ShipConstructed">
+        <set_value name="$filtered" exact="false" />
+        <set_value name="$filters" exact="@player.entity.$notificationFilters" />
+        <do_if value="@$filters != null">
+          <do_if value="$filters.$shipConstructedMoney? and $filters.$shipConstructedMoney * 1Cr gt $finishedbuildprice">
+            <set_value name="$filtered" exact="true" />
+          </do_if>
+          <do_else>
+            <do_if value="$object.isclass.{class.ship_s} and @$filters.$shipConstructedClassS == true">
+              <set_value name="$filtered" exact="true" />
+            </do_if>
+            <do_if value="$object.isclass.{class.ship_m} and @$filters.$shipConstructedClassM == true">
+              <set_value name="$filtered" exact="true" />
+            </do_if>
+            <do_if value="$object.isclass.{class.ship_l} and @$filters.$shipConstructedClassL == true">
+              <set_value name="$filtered" exact="true" />
+            </do_if>
+            <do_if value="$object.isclass.{class.ship_xl} and @$filters.$shipConstructedClassXL == true">
+              <set_value name="$filtered" exact="true" />
+            </do_if>
+          </do_else>
+        </do_if>
+        <debug_text text="'NotificationFilter: Ship Constructed Notification filters. Ship: %s, Class S: %s, Class M: %s, Class L: %s, Class XL: %s, Money: %s, Filter Money: %s, Filter S: %s, Filter M: %s, Filter L: %s, Filter XL: %s, Filtered: %s.'.           [$object.knownname, $object.isclass.{class.ship_s}, $object.isclass.{class.ship_m}, $object.isclass.{class.ship_l}, $object.isclass.{class.ship_xl}, $finishedbuildprice.formatted.default, (@$filters.$shipConstructedMoney * 1Cr).formatted.default, @$filters.$shipConstructedClassS, @$filters.$shipConstructedClassM, @$filters.$shipConstructedClassL, @$filters.$shipConstructedClassXL, $filtered]" chance="@$filters.$debugChance" filter="scripts" />
+        <do_if value="not $filtered">
+          <write_to_logbook category="upkeep" title="{1016,150}" text="$logbooktext" interaction="showonmap" object="this.object" faction="$object.owner" money="$finishedbuildprice" />
+        </do_if>
+      </actions>
+    </library>
+  </add>
+  <replace sel="/aiscript/interrupts/handler/actions/do_if[@value=&quot;event.name == 'event_build_finished'&quot;]/do_if[@value='$object']/do_if[@value='event.param3.exists and $object.isclass.ship']/do_elseif[@value='event.param3.base and event.param3.isshipbuild']/do_if[@value='$finishedbuildprice gt 0 and @this.station.isplayerowned and not $playerownedobject']/write_to_logbook[@category='upkeep']">
+    <include_interrupt_actions ref="Filter_Notification_ShipConstructed" />
+  </replace>
+</diff>

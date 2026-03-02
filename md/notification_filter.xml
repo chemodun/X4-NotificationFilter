@@ -10,7 +10,7 @@
     </cue>
 
 
-    <library name="DefaultFilters" purpose="include_actions" version="2">
+    <library name="DefaultFilters" purpose="include_actions" version="3">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
           <set_value name="player.entity.$notificationFilters" exact="table[
@@ -20,30 +20,30 @@
             $craftingProgress = false,
             $insufficientFunds = false,
             $insufficientFundsLogbook = false,
-            $producedShipS = false,
-            $producedShipM = false,
-            $producedShipL = false,
-            $producedShipXL = false,
-            $producedShipMoney = 0,
+            $shipConstructedClassS = false,
+            $shipConstructedClassM = false,
+            $shipConstructedClassL = false,
+            $shipConstructedClassXL = false,
+            $shipConstructedMoney = 0,
             $debugChance = 0
           ]" />
         </do_if>
         <set_value name="$filters" exact="@player.entity.$notificationFilters" />
         <set_value name="$notificationFiltersDebugChance" exact="$filters.$debugChance" />
-        <do_if value="$filters.$producedShipMoney == null">
-          <set_value name="$filters.$producedShipMoney" exact="0" />
+        <do_if value="$filters.$shipConstructedMoney? == false">
+          <set_value name="$filters.$shipConstructedMoney" exact="0" />
         </do_if>
-        <do_if value="$filters.$producedShipS == null">
-          <set_value name="$filters.$producedShipS" exact="false" />
+        <do_if value="$filters.$shipConstructedClassS? == false">
+          <set_value name="$filters.$shipConstructedClassS" exact="false" />
         </do_if>
-        <do_if value="$filters.$producedShipM == null">
-          <set_value name="$filters.$producedShipM" exact="false" />
+        <do_if value="$filters.$shipConstructedClassM? == false">
+          <set_value name="$filters.$shipConstructedClassM" exact="false" />
         </do_if>
-        <do_if value="$filters.$producedShipL == null">
-          <set_value name="$filters.$producedShipL" exact="false" />
+        <do_if value="$filters.$shipConstructedClassL? == false">
+          <set_value name="$filters.$shipConstructedClassL" exact="false" />
         </do_if>
-        <do_if value="$filters.$producedShipXL == null">
-          <set_value name="$filters.$producedShipXL" exact="false" />
+        <do_if value="$filters.$shipConstructedClassXL? == false">
+          <set_value name="$filters.$shipConstructedClassXL" exact="false" />
         </do_if>
       </actions>
     </library>

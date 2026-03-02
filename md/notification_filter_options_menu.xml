@@ -5,7 +5,7 @@
       <actions>
       </actions>
       <cues>
-        <cue name="Register_Menu" instantiate="true" version="1">
+        <cue name="Register_Menu" instantiate="true" version="2">
           <conditions>
             <event_cue_signalled cue="md.Simple_Menu_API.Reloaded" />
           </conditions>
@@ -15,19 +15,19 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Register_Options_Menu"
               param="table[
                 $id      = 'Notification_Filter_options_menu',
-                $columns = 8,
+                $columns = 12,
                 $title   = {1972092413, 10000},
                 $onOpen  = Notification_Filter_Options_Menu,
               ]" />
           </actions>
         </cue>
 
-        <cue name="Notification_Filter_Options_Menu" instantiate="true" version="1">
+        <cue name="Notification_Filter_Options_Menu" instantiate="true" version="2">
           <conditions>
             <event_cue_signalled />
           </conditions>
           <actions>
-            <debug_text text="'NotificationFilter Options: Opening Notification Filter Menu'" chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <debug_text text="'NotificationFilter Options: Opening Notification Filter Menu. Param: %s' . [event.param]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
             <debug_text
               text="'NotificationFilter Options: Current filters: %s' . [$filters]"
@@ -36,6 +36,7 @@
             <include_actions ref="Menu_Section_Money" />
             <include_actions ref="Menu_Section_CraftingProgress" />
             <include_actions ref="Menu_Section_InsufficientFunds" />
+            <include_actions ref="Menu_Section_ShipConstructed" />
             <include_actions ref="Menu_Section_Other" />
             <remove_value name="$filters" />
           </actions>
@@ -54,14 +55,14 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
-                $colSpan = 5,
+                $colSpan = 7,
                 $text = {1972092413, 10110},
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
               param="table[
                 $id = 'Notification_Filter_Reputation',
-                $col = 6,
-                $colSpan = 3,
+                $col = 8,
+                $colSpan = 5,
                 $options = $reputationOptions,
                 $startOption = $reputationIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
@@ -73,14 +74,14 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
-                $colSpan = 5,
+                $colSpan = 7,
                 $text = {1972092413, 10120},
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
               param="table[
                 $id = 'Notification_Filter_Reputation_Logbook',
-                $col = 6,
-                $colSpan = 3,
+                $col = 8,
+                $colSpan = 5,
                 $options = $reputationOptions,
                 $startOption = $reputationIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
@@ -98,7 +99,7 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 1,
-                $colSpan = 8,
+                $colSpan = 12,
                 $halign = 'left',
                 $text = {1972092413, 10210},
               ]" />
@@ -107,7 +108,7 @@
               param="table[
                 $id = 'Notification_Filter_Money',
                 $col = 1,
-                $colSpan = 8,
+                $colSpan = 12,
                 $min = 0,
                 $max = 100000000,
                 $step = 1000,
@@ -130,6 +131,8 @@
                 $id = 'Notification_Filter_CraftingProgress',
                 $checked = @$filters.$craftingProgress == true,
                 $col = 1,
+                $colSpan = 1,
+                $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
                 $onClick = Handle_Checkbox_Changed
@@ -137,7 +140,7 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 2,
-                $colSpan = 7,
+                $colSpan = 11,
                 $halign = 'left',
                 $text = {1972092413, 10310},
               ]" />
@@ -156,6 +159,8 @@
                 $id = 'Notification_Filter_InsufficientFunds',
                 $checked = @$filters.$insufficientFunds == true,
                 $col = 1,
+                $colSpan = 1,
+                $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
                 $onClick = Handle_Checkbox_Changed
@@ -163,30 +168,142 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 2,
-                $colSpan = 7,
+                $colSpan = 5,
                 $halign = 'left',
                 $text = {1972092413, 10410},
               ]" />
-            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
               param="table[
                 $id = 'Notification_Filter_InsufficientFunds_Logbook',
                 $checked = @$filters.$insufficientFundsLogbook == true,
-                $col = 1,
+                $col = 7,
+                $colSpan = 1,
+                $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
                 $onClick = Handle_Checkbox_Changed
               ]" />
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
-                $col = 2,
-                $colSpan = 7,
+                $col = 8,
+                $colSpan = 5,
                 $halign = 'left',
                 $text = {1972092413, 10420},
               ]" />
           </actions>
         </library>
 
+        <library name="Menu_Section_ShipConstructed" purpose="include_actions" version="2">
+          <actions>
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10500}" />
+            </run_actions>
+            <include_actions ref="Add_Empty_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 3,
+                $halign = 'left',
+                $text = {1972092413, 10510},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_ShipConstructed_S',
+                $checked = @$filters.$shipConstructedClassS == true,
+                $col = 4,
+                $colSpan = 1,
+                $x = 20,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 5,
+                $colSpan = 1,
+                $halign = 'left',
+                $text = {1001, 11000},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_ShipConstructed_M',
+                $checked = @$filters.$shipConstructedClassM == true,
+                $col = 6,
+                $colSpan = 1,
+                $x = 20,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 7,
+                $colSpan = 1,
+                $halign = 'left',
+                $text = {1001, 11001},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_ShipConstructed_L',
+                $checked = @$filters.$shipConstructedClassL == true,
+                $col = 8,
+                $colSpan = 1,
+                $x = 20,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 9,
+                $colSpan = 1,
+                $halign = 'left',
+                $text = {1001, 11002},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
+              param="table[
+                $id = 'Notification_Filter_ShipConstructed_XL',
+                $checked = @$filters.$shipConstructedClassXL == true,
+                $col = 10,
+                $colSpan = 1,
+                $x = 20,
+                $width = 'Helper.standardButtonHeight',
+                $height = 'Helper.standardButtonHeight',
+                $onClick = Handle_Checkbox_Changed
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 11,
+                $colSpan = 1,
+                $halign = 'left',
+                $text = {1001, 11003},
+              ]" />
+            <include_actions ref="Add_Empty_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
+              param="table[
+                $col = 1,
+                $colSpan = 12,
+                $halign = 'left',
+                $text = {1972092413, 10560},
+              ]" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
+            <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
+              param="table[
+                $id = 'Notification_Filter_ShipConstructed_Money',
+                $col = 1,
+                $colSpan = 12,
+                $min = 0,
+                $max = 100000000,
+                $step = 1000,
+                $start = @$filters.$shipConstructedMoney,
+                $suffix = ' %s.'.[{1001, 101}],
+                $onSliderCellConfirm = Handle_Slider_Changed,
+              ]" />
+          </actions>
+        </library>
 
         <library name="Menu_Section_Other" purpose="include_actions" version="2">
           <actions>
@@ -200,6 +317,8 @@
                 $id = 'Notification_Filter_Debug',
                 $checked = @$filters.$debugChance gt 0,
                 $col = 1,
+                $colSpan = 1,
+                $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
                 $onClick = Handle_Checkbox_Changed
@@ -207,7 +326,7 @@
             <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
               param="table[
                 $col = 2,
-                $colSpan = 7,
+                $colSpan = 11,
                 $halign = 'left',
                 $text = {1972092413, 19910},
               ]" />
@@ -236,7 +355,7 @@
           </actions>
         </cue>
 
-        <cue name="Handle_Slider_Changed" instantiate="true" version="1">
+        <cue name="Handle_Slider_Changed" instantiate="true" version="2">
           <conditions>
             <event_cue_signalled />
           </conditions>
@@ -248,6 +367,9 @@
             <do_if value="$id == 'Notification_Filter_Money'">
               <set_value name="$filters.$money" exact="$value" />
             </do_if>
+            <do_if value="$id == 'Notification_Filter_ShipConstructed_Money'">
+              <set_value name="$filters.$shipConstructedMoney" exact="$value" />
+            </do_if>
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />
             <remove_value name="$value" />
@@ -255,7 +377,7 @@
           </actions>
         </cue>
 
-        <cue name="Handle_Checkbox_Changed" instantiate="true" version="1">
+        <cue name="Handle_Checkbox_Changed" instantiate="true" version="2">
           <conditions>
             <event_cue_signalled />
           </conditions>
@@ -276,6 +398,18 @@
             </do_if>
             <do_if value="$id == 'Notification_Filter_InsufficientFunds_Logbook'">
               <set_value name="$filters.$insufficientFundsLogbook" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_ShipConstructed_S'">
+              <set_value name="$filters.$shipConstructedClassS" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_ShipConstructed_M'">
+              <set_value name="$filters.$shipConstructedClassM" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_ShipConstructed_L'">
+              <set_value name="$filters.$shipConstructedClassL" exact="event.param.$checked" />
+            </do_if>
+            <do_if value="$id == 'Notification_Filter_ShipConstructed_XL'">
+              <set_value name="$filters.$shipConstructedClassXL" exact="event.param.$checked" />
             </do_if>
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />
