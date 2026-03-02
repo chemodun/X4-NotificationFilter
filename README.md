@@ -65,12 +65,12 @@ There are two `Checkboxes` to disable notifications related to `Station Insuffic
 
 ### Ship Constructed
 
-There are several `Checkboxes` to disable notifications related to `Ship Constructed` in the `Logbook` based on the class of the constructed ship and `Slider` to set a minimum cost of the constructed ship to be recorded in the `Logbook`.
+There are several `Checkboxes` to disable notifications related to `Ship Constructed` in the `Logbook` based on the size of the constructed ship and `Slider` to set a minimum cost of the constructed ship to be recorded in the `Logbook`.
 
 Please take in consideration that:
 
 - These filters are applied only to logbook entries.
-- The cost filter is applied to all ship classes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship class.
+- The cost filter is applied to all ship sizes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship size.
 
 ### Other
 
