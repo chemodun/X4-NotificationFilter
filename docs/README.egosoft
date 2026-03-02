@@ -67,12 +67,12 @@ There are two [b]Checkboxes[/b] to disable notifications related to [b]Station I
 
 [size=125][u]Ship Constructed[/u][/size]
 
-There are several [b]Checkboxes[/b] to disable notifications related to [b]Ship Constructed[/b] in the [b]Logbook[/b] based on the class of the constructed ship and [b]Slider[/b] to set a minimum cost of the constructed ship to be recorded in the [b]Logbook[/b].
+There are several [b]Checkboxes[/b] to disable notifications related to [b]Ship Constructed[/b] in the [b]Logbook[/b] based on the size of the constructed ship and [b]Slider[/b] to set a minimum cost of the constructed ship to be recorded in the [b]Logbook[/b].
 
 Please take in consideration that:
 [list]
 [*] These filters are applied only to logbook entries.
-[*] The cost filter is applied to all ship classes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship class.
+[*] The cost filter is applied to all ship sizes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship size.
 [/list]
 [size=125][u]Other[/u][/size]
 
