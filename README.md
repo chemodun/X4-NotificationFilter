@@ -63,6 +63,15 @@ There is an example of such notification in the image below:
 
 There are two `Checkboxes` to disable notifications related to `Station Insufficient Funds` in the `Notification ticker` and `Logbook`.
 
+### Ship Constructed
+
+There are several `Checkboxes` to disable notifications related to `Ship Constructed` in the `Logbook` based on the class of the constructed ship and `Slider` to set a minimum cost of the constructed ship to be recorded in the `Logbook`.
+
+Please take in consideration that:
+
+- These filters are applied only to logbook entries.
+- The cost filter is applied to all ship classes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship class.
+
 ### Other
 
 There is also a `Debug` checkbox to enable debug messages for the notifications that are being processed by the filter.
@@ -78,6 +87,11 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 - [SirNukes](https://next.nexusmods.com/profile/sirnukes?gameId=2659) — for the `Mod Support APIs` that power the UI hooks.
 
 ## Changelog
+
+### [8.00.04] - 2026-03-02
+
+- **Added**
+  - New filter for `Ship Constructed` logbook entries based on the cost of the constructed ship.
 
 ### [8.00.03] - 2026-02-22
 
