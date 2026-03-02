@@ -21,6 +21,9 @@
       <t id="10400">Fundos Insuficientes da Estação:</t>
       <t id="10410">Desativar notificações</t>
       <t id="10420">Desativar entradas de diário</t>
+      <t id="10500">Desativar entradas de diário {1016,150}:</t>
+      <t id="10510">Por tamanho:</t>
+      <t id="10560">Ou para naves com custo de construção abaixo de:</t>
       <t id="19900">Outro:</t>
       <t id="19910">Depuração</t>
     </page>

@@ -21,6 +21,9 @@
       <t id="10400">Station mit unzureichenden Mitteln:</t>
       <t id="10410">Benachrichtigungen deaktivieren</t>
       <t id="10420">Logbucheinträge deaktivieren</t>
+      <t id="10500">Logbucheinträge {1016,150} deaktivieren:</t>
+      <t id="10510">Nach Größe:</t>
+      <t id="10560">Oder für Schiffe mit Baukosten unter:</t>
       <t id="19900">Sonstiges:</t>
       <t id="19910">Debuggen</t>
     </page>

@@ -21,6 +21,9 @@
       <t id="10400">Niewystarczające Środki Stacji:</t>
       <t id="10410">Wyłącz powiadomienia</t>
       <t id="10420">Wyłącz wpisy w dzienniku</t>
+      <t id="10500">Wyłącz wpisy w dzienniku {1016,150}:</t>
+      <t id="10510">Według rozmiaru:</t>
+      <t id="10560">Lub dla statków o koszcie budowy poniżej:</t>
       <t id="19900">Inne:</t>
       <t id="19910">Debugowanie</t>
     </page>

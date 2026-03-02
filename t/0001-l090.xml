@@ -21,6 +21,9 @@
       <t id="10400">İstasyon Yetersiz Fon:</t>
       <t id="10410">Bildirimleri devre dışı bırak</t>
       <t id="10420">Günlük girişlerini devre dışı bırak</t>
+      <t id="10500">{1016,150} günlük kayıtlarını devre dışı bırak:</t>
+      <t id="10510">Boyuta göre:</t>
+      <t id="10560">Veya inşa maliyeti şundan düşük olan gemiler için:</t>
       <t id="19900">Diğer:</t>
       <t id="19910">Hata Ayıklama</t>
     </page>
