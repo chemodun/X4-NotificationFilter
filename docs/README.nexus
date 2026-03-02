@@ -65,6 +65,15 @@ There is an example of such notification in the image below:
 
 There are two [b]Checkboxes[/b] to disable notifications related to [b]Station Insufficient Funds[/b] in the [b]Notification ticker[/b] and [b]Logbook[/b].
 
+[size=3][u][i]Ship Constructed[/i][/u][/size]
+
+There are several [b]Checkboxes[/b] to disable notifications related to [b]Ship Constructed[/b] in the [b]Logbook[/b] based on the class of the constructed ship and [b]Slider[/b] to set a minimum cost of the constructed ship to be recorded in the [b]Logbook[/b].
+
+Please take in consideration that:
+[list]
+[*] These filters are applied only to logbook entries.
+[*] The cost filter is applied to all ship classes, so if the cost of the constructed ship is less than the defined value, the logbook entry will be hidden regardless of the ship class.
+[/list]
 [size=3][u][i]Other[/i][/u][/size]
 
 There is also a [b]Debug[/b] checkbox to enable debug messages for the notifications that are being processed by the filter.
@@ -81,6 +90,13 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [/list]
 [size=3][u][b]Changelog[/b][/u][/size]
 
+[size=3][u][i][8.00.04] - 2026-03-02[/i][/u][/size]
+[list]
+[*] [b]Added[/b]
+[list]
+[*] New filter for [b]Ship Constructed[/b] logbook entries based on the cost of the constructed ship.
+[/list]
+[/list]
 [size=3][u][i][8.00.03] - 2026-02-22[/i][/u][/size]
 [list]
 [*] [b]Added[/b]
