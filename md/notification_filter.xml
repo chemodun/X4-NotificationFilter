@@ -10,7 +10,7 @@
     </cue>
 
 
-    <library name="DefaultFilters" purpose="include_actions" version="3">
+    <library name="DefaultFilters" purpose="include_actions" version="4">
       <actions>
         <do_if value="@player.entity.$notificationFilters == null">
           <set_value name="player.entity.$notificationFilters" exact="table[
@@ -25,6 +25,12 @@
             $shipConstructedClassL = false,
             $shipConstructedClassXL = false,
             $shipConstructedMoney = 0,
+            $ammoCollected = false,
+            $ammoReceived = false,
+            $inventoryCollected = false,
+            $droppedContainerCollected = false,
+            $materialsCollected = false,
+            $storageFull = false,
             $debugChance = 0
           ]" />
         </do_if>
@@ -44,6 +50,24 @@
         </do_if>
         <do_if value="$filters.$shipConstructedClassXL? == false">
           <set_value name="$filters.$shipConstructedClassXL" exact="false" />
+        </do_if>
+        <do_if value="$filters.$ammoCollected? == false">
+          <set_value name="$filters.$ammoCollected" exact="false" />
+        </do_if>
+        <do_if value="$filters.$ammoReceived? == false">
+          <set_value name="$filters.$ammoReceived" exact="false" />
+        </do_if>
+        <do_if value="$filters.$inventoryCollected? == false">
+          <set_value name="$filters.$inventoryCollected" exact="false" />
+        </do_if>
+        <do_if value="$filters.$droppedContainerCollected? == false">
+          <set_value name="$filters.$droppedContainerCollected" exact="false" />
+        </do_if>
+        <do_if value="$filters.$materialsCollected? == false">
+          <set_value name="$filters.$materialsCollected" exact="false" />
+        </do_if>
+        <do_if value="$filters.$storageFull? == false">
+          <set_value name="$filters.$storageFull" exact="false" />
         </do_if>
       </actions>
     </library>
@@ -126,6 +150,81 @@
         </do_if>
         <remove_value name="$filters" />
         <remove_value name="$craftingProgress" />
+      </actions>
+    </library>
+
+    <library name="Filter_DropCollected_AmmoCollected" purpose="include_actions">
+      <actions>
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
+        <debug_text text="'NotificationFilter: Ammo collected filter: %s' . [$filters.$ammoCollected]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="$filters.$ammoCollected != true">
+          <show_notification text="[{1015,42}, '', event.param.name, event.param2]" comment="Ammo collected" />
+        </do_if>
+        <remove_value name="$filters" />
+      </actions>
+    </library>
+
+    <library name="Filter_DropCollected_AmmoReceived" purpose="include_actions">
+      <actions>
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
+        <debug_text text="'NotificationFilter: Ammo received filter: %s' . [$filters.$ammoReceived]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="$filters.$ammoReceived != true">
+          <show_notification text="[{1015,50}, '', event.param.name, event.param2]" comment="Ammo received" />
+        </do_if>
+        <remove_value name="$filters" />
+      </actions>
+    </library>
+
+    <library name="Filter_DropCollected_Ware_Base" purpose="include_actions">
+      <!-- Sets $filterWareNotification=true if the current ware notification type should be suppressed -->
+      <actions>
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
+        <set_value name="$filterWareNotification" exact="false" />
+        <do_if value="event.param.isinventory">
+          <set_value name="$filterWareNotification" exact="$filters.$inventoryCollected" />
+        </do_if>
+        <do_elseif value="event.param3.isclass.collectablewares and event.param3.isdroppedcontainer">
+          <set_value name="$filterWareNotification" exact="$filters.$droppedContainerCollected" />
+        </do_elseif>
+        <do_else>
+          <set_value name="$filterWareNotification" exact="$filters.$materialsCollected" />
+        </do_else>
+        <debug_text text="'NotificationFilter: Ware notification type filter: isinventory=%s, isdroppedcontainer=%s, filtered=%s' . [event.param.isinventory, @event.param3.isdroppedcontainer, $filterWareNotification]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <remove_value name="$filters" />
+      </actions>
+    </library>
+
+    <library name="Filter_DropCollected_Ware_Important" purpose="include_actions">
+      <!-- Replaces show_notification inside do_if[$important?] for filtered ware collection -->
+      <actions>
+        <include_actions ref="md.Notification_Filter.Filter_DropCollected_Ware_Base" />
+        <do_if value="not $filterWareNotification">
+          <show_notification text="$tickertext" priority="$priority" sound="notification_rareitemcollected" />
+        </do_if>
+        <remove_value name="$filterWareNotification" />
+      </actions>
+    </library>
+
+    <library name="Filter_DropCollected_Ware_Normal" purpose="include_actions">
+      <!-- Replaces show_notification inside do_else (non-important) for filtered ware collection -->
+      <actions>
+        <include_actions ref="md.Notification_Filter.Filter_DropCollected_Ware_Base" />
+        <do_if value="not $filterWareNotification">
+          <show_notification text="$tickertext" priority="$priority" />
+        </do_if>
+        <remove_value name="$filterWareNotification" />
+      </actions>
+    </library>
+
+    <library name="Filter_CollectDropFailed_StorageFull" purpose="include_actions">
+      <!-- Replaces show_notification in CollectDropFailed_NoCargoStorage -->
+      <actions>
+        <include_actions ref="md.Notification_Filter.DefaultFilters" />
+        <debug_text text="'NotificationFilter: Storage full filter: %s' . [$filters.$storageFull]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="$filters.$storageFull != true">
+          <show_notification text="[$caption, '', event.param.name, event.param2, $storagetext, '']" priority="2" timeout="7s" />
+        </do_if>
+        <remove_value name="$filters" />
       </actions>
     </library>
 

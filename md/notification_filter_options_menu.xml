@@ -35,6 +35,7 @@
             <include_actions ref="Menu_Section_Reputation" />
             <include_actions ref="Menu_Section_Money" />
             <include_actions ref="Menu_Section_CraftingProgress" />
+            <include_actions ref="Menu_Section_CollectedItems" />
             <include_actions ref="Menu_Section_InsufficientFunds" />
             <include_actions ref="Menu_Section_ShipConstructed" />
             <include_actions ref="Menu_Section_Other" />
@@ -94,7 +95,7 @@
           </actions>
         </library>
 
-        <library name="Menu_Section_CraftingProgress" purpose="include_actions" version="2">
+        <library name="Menu_Section_CraftingProgress" purpose="include_actions" version="4">
           <actions>
             <include_actions ref="Add_Empty_Row" />
             <run_actions ref="Add_Title_Row">
@@ -105,6 +106,57 @@
               <param name="col" value="1" />
               <param name="textColSpan" value="11" />
               <param name="text" value="{1972092413, 10310}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+          </actions>
+        </library>
+
+        <library name="Menu_Section_CollectedItems" purpose="include_actions" version="1">
+          <actions>
+            <include_actions ref="Add_Empty_Row" />
+            <run_actions ref="Add_Title_Row">
+              <param name="title" value="{1972092413, 10600}" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'ammoCollected'" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10610}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'ammoReceived'" />
+              <param name="col" value="7" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10620}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'inventoryCollected'" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10630}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'droppedContainerCollected'" />
+              <param name="col" value="7" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10640}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'materialsCollected'" />
+              <param name="col" value="1" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10650}" />
+              <param name="data" value="@$filters" />
+            </run_actions>
+            <run_actions ref="Add_CheckBox">
+              <param name="id" value="'storageFull'" />
+              <param name="col" value="7" />
+              <param name="textColSpan" value="5" />
+              <param name="text" value="{1972092413, 10660}" />
               <param name="data" value="@$filters" />
             </run_actions>
           </actions>

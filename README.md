@@ -7,6 +7,10 @@ This mod introduces filtering functionality for some type of Notifications shown
 - Set minimum changes of `Relation` to be displayed in `Notification Ticker` and `Logbook` (Separately).
 - Set a minimum amount of `Money` transaction to be displayed in `Notification Ticker`.
 - Disable notifications related to `Crafting Progress` in the `Notification Ticker`.
+- Disable notifications for collected items in the `Notification Ticker`:
+  - `Ammo collected`, `Ammo received`
+  - `Inventory items collected`, `Dropped container collected`
+  - `Materials collected`, `Storage: 100% full`
 - Disable notifications related to `Station Insufficient Funds` in the `Notification Ticker` and `Logbook`.
 - Disable notifications related to `Ship Constructed` in the `Logbook` based on the size or cost of the constructed ship.
 
@@ -34,6 +38,15 @@ Then, select the `Notification Filter` item to open the filter menu.
 
 ![Notification Filter](docs/images/notification_filter.png)
 
+The menu contains the following sections:
+
+- Relation Minimum Changes
+- Money Minimum Changes
+- Crafting Progress
+- Collected Items
+- Station Insufficient Funds
+- Ship Constructed
+
 ### Relation Minimum Changes
 
 There are two different `Dropdowns` to define the minimum change of `Relation` to be displayed in `Notification ticker` or recorder into `Logbook`:
@@ -59,6 +72,17 @@ There is a `Checkbox` to disable notifications related to `Crafting Progress` in
 
 There is an example of such notification in the image below:
 ![Crafting Progress Notification](docs/images/crafting_progress.png)
+
+### Collected Items
+
+There are six `Checkboxes` to individually disable notifications for items picked up by the player in the `Notification Ticker`:
+
+- **Ammo collected**: Suppresses the `Ammo collected` ticker notification.
+- **Ammo received**: Suppresses the `Ammo received` (crafted/granted) ticker notification.
+- **Inventory items collected**: Suppresses the `Inventory item collected` ticker notification.
+- **Dropped container collected**: Suppresses the `Dropped container collected` ticker notification.
+- **Materials collected**: Suppresses the `Materials collected` ticker notification.
+- **Storage: 100% full**: Suppresses the `Storage: 100% full` (cargo full) ticker notification.
 
 ### Station Insufficient Funds
 
@@ -88,6 +112,11 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 - [SirNukes](https://next.nexusmods.com/profile/sirnukes?gameId=2659) — for the `Mod Support APIs` that power the UI hooks.
 
 ## Changelog
+
+### [8.00.05] - 2026-03-26
+
+- **Added**
+  - New `Collected Items` section with six individual filters for pick-up notifications: `Ammo collected`, `Ammo received`, `Inventory items collected`, `Dropped container collected`, `Materials collected`, `Storage: 100% full`.
 
 ### [8.00.04] - 2026-03-02
 

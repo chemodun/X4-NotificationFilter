@@ -24,6 +24,13 @@
       <t id="10500">Disabilita voci del registro {1016,150}:</t>
       <t id="10510">Per dimensione:</t>
       <t id="10560">O per navi con costo di costruzione inferiore a:</t>
+      <t id="10600">Oggetti raccolti:</t>
+      <t id="10610">Disabilita notifiche 'Munizioni raccolte'</t>
+      <t id="10620">Disabilita notifiche 'Munizioni ricevute'</t>
+      <t id="10630">Disabilita notifiche 'Oggetti inventario raccolti'</t>
+      <t id="10640">Disabilita notifiche 'Container raccolto'</t>
+      <t id="10650">Disabilita notifiche 'Materiali raccolti'</t>
+      <t id="10660">Disabilita notifiche 'Magazzino: 100% pieno'</t>
       <t id="19900">Altro:</t>
       <t id="19910">Debug</t>
     </page>

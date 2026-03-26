@@ -24,6 +24,13 @@
       <t id="10500">{1016,150} günlük kayıtlarını devre dışı bırak:</t>
       <t id="10510">Boyuta göre:</t>
       <t id="10560">Veya inşa maliyeti şundan düşük olan gemiler için:</t>
+      <t id="10600">Toplanan Öğeler:</t>
+      <t id="10610">'Mermi toplandı' bildirimlerini devre dışı bırak</t>
+      <t id="10620">'Mermi alındı' bildirimlerini devre dışı bırak</t>
+      <t id="10630">'Envanter öğeleri toplandı' bildirimlerini devre dışı bırak</t>
+      <t id="10640">'Bırakılan konteyner toplandı' bildirimlerini devre dışı bırak</t>
+      <t id="10650">'Malzemeler toplandı' bildirimlerini devre dışı bırak</t>
+      <t id="10660">'Depolama: %100 dolu' bildirimlerini devre dışı bırak</t>
       <t id="19900">Diğer:</t>
       <t id="19910">Hata Ayıklama</t>
     </page>

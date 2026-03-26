@@ -24,6 +24,13 @@
       <t id="10500">Désactiver les entrées du journal {1016,150}:</t>
       <t id="10510">Par taille:</t>
       <t id="10560">Ou pour les vaisseaux dont le coût de construction est inférieur à:</t>
+      <t id="10600">Objets collectés :</t>
+      <t id="10610">Désactiver les notifications 'Munitions ramassées'</t>
+      <t id="10620">Désactiver les notifications 'Munitions reçues'</t>
+      <t id="10630">Désactiver les notifications 'Objets d'inventaire ramassés'</t>
+      <t id="10640">Désactiver les notifications 'Container ramassé'</t>
+      <t id="10650">Désactiver les notifications 'Matériaux ramassés'</t>
+      <t id="10660">Désactiver les notifications 'Stockage: 100% plein'</t>
       <t id="19900">Autre:</t>
       <t id="19910">Débogage</t>
     </page>

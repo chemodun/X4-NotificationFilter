@@ -24,6 +24,13 @@
       <t id="10500">Wyłącz wpisy w dzienniku {1016,150}:</t>
       <t id="10510">Według rozmiaru:</t>
       <t id="10560">Lub dla statków o koszcie budowy poniżej:</t>
+      <t id="10600">Zebrane przedmioty:</t>
+      <t id="10610">Wyłącz powiadomienia 'Zebrana amunicja'</t>
+      <t id="10620">Wyłącz powiadomienia 'Otrzymana amunicja'</t>
+      <t id="10630">Wyłącz powiadomienia 'Zebrane przedmioty z ekwipunku'</t>
+      <t id="10640">Wyłącz powiadomienia 'Zebrany upuszczony kontener'</t>
+      <t id="10650">Wyłącz powiadomienia 'Zebrane materiały'</t>
+      <t id="10660">Wyłącz powiadomienia 'Magazyn: 100% pełny'</t>
       <t id="19900">Inne:</t>
       <t id="19910">Debugowanie</t>
     </page>

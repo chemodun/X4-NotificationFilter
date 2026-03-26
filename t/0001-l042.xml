@@ -24,6 +24,13 @@
       <t id="10500">Zakázat záznamy v deníku {1016,150}:</t>
       <t id="10510">Podle velikosti:</t>
       <t id="10560">Nebo pro lodě s náklady na stavbu nižšími než:</t>
+      <t id="10600">Sebrané předměty:</t>
+      <t id="10610">Zakázat oznámení 'Nasbíraná munice'</t>
+      <t id="10620">Zakázat oznámení 'Přijatá munice'</t>
+      <t id="10630">Zakázat oznámení 'Sebrané předměty inventáře'</t>
+      <t id="10640">Zakázat oznámení 'Sebraný shozený kontejner'</t>
+      <t id="10650">Zakázat oznámení 'Sebrané materiály'</t>
+      <t id="10660">Zakázat oznámení 'Sklad: 100% plné'</t>
       <t id="19900">Ostatní:</t>
       <t id="19910">Ladění</t>
     </page>
