@@ -52,7 +52,7 @@
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <run_actions ref="Add_Dropdown">
-              <param name="id" value="'Notification_Filter_Reputation'" />
+              <param name="id" value="'reputation'" />
               <param name="options" value="$reputationOptions" />
               <param name="currentIndex" value="$reputationIndex" />
               <param name="col" value="1" />
@@ -64,7 +64,7 @@
             <include_actions ref="GetCurrentReputationOptionsAndIndex" />
             <debug_text text="'NotificationFilter Options: Reputation Logbook filter value: %s, index: %s' . [$reputation, $reputationIndex]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <run_actions ref="Add_Dropdown">
-              <param name="id" value="'Notification_Filter_Reputation_Logbook'" />
+              <param name="id" value="'reputationLogbook'" />
               <param name="options" value="$reputationOptions" />
               <param name="currentIndex" value="$reputationIndex" />
               <param name="col" value="1" />
@@ -82,14 +82,14 @@
               <param name="title" value="{1972092413, 10200}" />
             </run_actions>
             <run_actions ref="Add_Slider">
-              <param name="id" value="'Notification_Filter_Money'" />
+              <param name="id" value="'money'" />
               <param name="min" value="0" />
               <param name="max" value="100000000" />
               <param name="step" value="1000" />
-              <param name="start" value="@$filters.$money" />
               <param name="text" value="{1972092413, 10210}" />
               <param name="suffix" value="' %s.'.[{1001, 101}]" />
               <param name="colSpan" value="12" />
+              <param name="data" value="@$filters" />
             </run_actions>
           </actions>
         </library>
@@ -101,11 +101,11 @@
               <param name="title" value="{1972092413, 10300}" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_CraftingProgress'" />
-              <param name="checked" value="@$filters.$craftingProgress == true" />
+              <param name="id" value="'craftingProgress'" />
               <param name="col" value="1" />
               <param name="textColSpan" value="11" />
               <param name="text" value="{1972092413, 10310}" />
+              <param name="data" value="@$filters" />
             </run_actions>
           </actions>
         </library>
@@ -117,18 +117,18 @@
               <param name="title" value="{1972092413, 10400}" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_InsufficientFunds'" />
-              <param name="checked" value="@$filters.$insufficientFunds == true" />
+              <param name="id" value="'insufficientFunds'" />
               <param name="col" value="1" />
               <param name="textColSpan" value="5" />
               <param name="text" value="{1972092413, 10410}" />
+              <param name="data" value="@$filters" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_InsufficientFunds_Logbook'" />
-              <param name="checked" value="@$filters.$insufficientFundsLogbook == true" />
+              <param name="id" value="'insufficientFundsLogbook'" />
               <param name="col" value="7" />
               <param name="textColSpan" value="5" />
               <param name="text" value="{1972092413, 10420}" />
+              <param name="data" value="@$filters" />
             </run_actions>
           </actions>
         </library>
@@ -149,39 +149,39 @@
                 $text = {1972092413, 10510},
               ]" />
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_ShipConstructed_S'" />
-              <param name="checked" value="@$filters.$shipConstructedClassS == true" />
+              <param name="id" value="'shipConstructedClassS'" />
               <param name="col" value="4" />
               <param name="text" value="{1001, 11000}" />
+              <param name="data" value="@$filters" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_ShipConstructed_M'" />
-              <param name="checked" value="@$filters.$shipConstructedClassM == true" />
+              <param name="id" value="'shipConstructedClassM'" />
               <param name="col" value="6" />
               <param name="text" value="{1001, 11001}" />
+              <param name="data" value="@$filters" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_ShipConstructed_L'" />
-              <param name="checked" value="@$filters.$shipConstructedClassL == true" />
+              <param name="id" value="'shipConstructedClassL'" />
               <param name="col" value="8" />
               <param name="text" value="{1001, 11002}" />
+              <param name="data" value="@$filters" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_ShipConstructed_XL'" />
-              <param name="checked" value="@$filters.$shipConstructedClassXL == true" />
+              <param name="id" value="'shipConstructedClassXL'" />
               <param name="col" value="10" />
               <param name="text" value="{1001, 11003}" />
+              <param name="data" value="@$filters" />
             </run_actions>
             <include_actions ref="Add_Empty_Row" />
             <run_actions ref="Add_Slider">
-              <param name="id" value="'Notification_Filter_ShipConstructed_Cost'" />
+              <param name="id" value="'shipConstructedMoney'" />
               <param name="min" value="0" />
               <param name="max" value="100000000" />
               <param name="step" value="1000" />
-              <param name="start" value="@$filters.$shipConstructedMoney" />
               <param name="text" value="{1972092413, 10560}" />
               <param name="suffix" value="' %s.'.[{1001, 101}]" />
               <param name="colSpan" value="12" />
+              <param name="data" value="@$filters" />
             </run_actions>
           </actions>
         </library>
@@ -193,11 +193,11 @@
               <param name="title" value="{1972092413, 19900}" />
             </run_actions>
             <run_actions ref="Add_CheckBox">
-              <param name="id" value="'Notification_Filter_Debug'" />
-              <param name="checked" value="@$filters.$debugChance gt 0" />
+              <param name="id" value="'debugChance'" />
               <param name="col" value="1" />
               <param name="textColSpan" value="11" />
               <param name="text" value="{1972092413, 19910}" />
+              <param name="data" value="@$filters" />
             </run_actions>
           </actions>
         </library>
@@ -214,6 +214,7 @@
           </params>
           <actions>
             <do_if value="@$id != null and @$options != null and $currentIndex? and $col? and $textColSpan? and @$text != null and $dropdownColSpan?">
+              <set_value name="$valueId" exact="'$%s' . [@$id]" />
               <do_if value="@$col == 1">
                 <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
               </do_if>
@@ -226,12 +227,15 @@
               ]" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_Dropdown"
                 param="table[
-                $id = @$id,
+                $id = 'Notification_Filter_Dropdown_%s' . [@$id],
                 $col = @$col + @$textColSpan,
                 $colSpan = @$dropdownColSpan,
                 $options = @$options,
                 $startOption = @$currentIndex,
                 $onDropDownConfirmed = Handle_Dropdown_Changed,
+                $echo = table[
+                  $valueId = @$valueId
+                ],
               ]" />
             </do_if>
           </actions>
@@ -244,12 +248,13 @@
             <param name="min" default="0" />
             <param name="max" default="100" />
             <param name="step" default="1" />
-            <param name="start" default="0" />
             <param name="suffix" default="''" />
             <param name="colSpan" default="1" />
+            <param name="data" />
           </params>
           <actions>
-            <do_if value="@$id != null and $min? and $max? and $step? and $start?">
+            <do_if value="@$id != null and $min? and $max? and $step? and @$data != null">
+              <set_value name="$valueId" exact="'$%s' . [@$id]" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" param="table[$selectable = false]" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
                 param="table[
@@ -261,15 +266,18 @@
               <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_Slider"
                 param="table[
-                $id = @$id,
+                $id = 'Notification_Filter_Slider_%s' . [@$id],
                 $col = 1,
                 $colSpan = @$colSpan,
                 $min = @$min,
                 $max = @$max,
                 $step = @$step,
-                $start = @$start,
+                $start = @$data.{@$valueId},
                 $suffix = @$suffix,
                 $onSliderCellConfirm = Handle_Slider_Changed,
+                $echo = table[
+                  $valueId = @$valueId
+                ],
               ]" />
             </do_if>
           </actions>
@@ -279,26 +287,30 @@
         <library name="Add_CheckBox" purpose="run_actions">
           <params>
             <param name="id" />
-            <param name="checked" default="false" />
             <param name="col" default="1" />
             <param name="textColSpan" default="1" />
             <param name="text" default="''" />
+            <param name="data" />
           </params>
           <actions>
-            <do_if value="@$id != null and $checked? and $col? and $textColSpan? and @$text != null">
+            <do_if value="@$id != null and $col? and $textColSpan? and @$text != null and @$data != null">
               <do_if value="@$col == 1">
                 <signal_cue_instantly cue="md.Simple_Menu_API.Add_Row" />
               </do_if>
+              <set_value name="$valueId" exact="'$%s' . [@$id]" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
                 param="table[
-                $id = @$id,
-                $checked = @$checked,
+                $id = 'Notification_Filter_CheckBox_%s' . [@$id],
+                $checked = @$data.{@$valueId} == true,
                 $col = @$col,
                 $colSpan = 1,
                 $x = 20,
                 $width = 'Helper.standardButtonHeight',
                 $height = 'Helper.standardButtonHeight',
-                $onClick = Handle_Checkbox_Changed
+                $onClick = Handle_Checkbox_Changed,
+                $echo = table[
+                  $valueId = @$valueId
+                ],
               ]" />
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_Text"
                 param="table[
@@ -318,16 +330,11 @@
           <actions>
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
             <debug_text text="'NotificationFilter Options: Dropdown %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$option.$value, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <set_value name="$id" exact="event.param.$id" />
+            <set_value name="$valueId" exact="event.param.$echo.$valueId" />
             <set_value name="$value" exact="event.param.$option.$value" />
-            <do_if value="$id == 'Notification_Filter_Reputation'">
-              <set_value name="$filters.$reputation" exact="$value" />
-            </do_if>
-            <do_elseif value="$id == 'Notification_Filter_Reputation_Logbook'">
-              <set_value name="$filters.$reputationLogbook" exact="$value" />
-            </do_elseif>
+            <set_value name="$filters.{@$valueId}" exact="$value" />
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <remove_value name="$id" />
+            <remove_value name="$valueId" />
             <remove_value name="$value" />
             <remove_value name="$filters" />
           </actions>
@@ -340,16 +347,11 @@
           <actions>
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
             <debug_text text="'NotificationFilter Options: Slider %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$value, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <set_value name="$id" exact="event.param.$id" />
+            <set_value name="$valueId" exact="event.param.$echo.$valueId" />
             <set_value name="$value" exact="event.param.$value" />
-            <do_if value="$id == 'Notification_Filter_Money'">
-              <set_value name="$filters.$money" exact="$value" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_ShipConstructed_Money'">
-              <set_value name="$filters.$shipConstructedMoney" exact="$value" />
-            </do_if>
+            <set_value name="$filters.{@$valueId}" exact="$value" />
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <remove_value name="$id" />
+            <remove_value name="$valueId" />
             <remove_value name="$value" />
             <remove_value name="$filters" />
           </actions>
@@ -361,37 +363,21 @@
           </conditions>
           <actions>
             <include_actions ref="md.Notification_Filter.DefaultFilters" />
-            <debug_text text="'NotificationFilter Options: Checkbox %s changed to %s. Current filters: %s' .[event.param.$id, event.param.$checked, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-            <set_value name="$id" exact="event.param.$id" />
-            <set_value name="$value" exact="if @event.param.$checked then 100 else 0" />
-            <do_if value="$id == 'Notification_Filter_Debug'">
-              <set_value name="$filters.$debugChance" exact="$value" />
-              <set_value name="$notificationFiltersDebugChance" exact="$value" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_CraftingProgress'">
-              <set_value name="$filters.$craftingProgress" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_InsufficientFunds'">
-              <set_value name="$filters.$insufficientFunds" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_InsufficientFunds_Logbook'">
-              <set_value name="$filters.$insufficientFundsLogbook" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_ShipConstructed_S'">
-              <set_value name="$filters.$shipConstructedClassS" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_ShipConstructed_M'">
-              <set_value name="$filters.$shipConstructedClassM" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_ShipConstructed_L'">
-              <set_value name="$filters.$shipConstructedClassL" exact="event.param.$checked" />
-            </do_if>
-            <do_if value="$id == 'Notification_Filter_ShipConstructed_XL'">
-              <set_value name="$filters.$shipConstructedClassXL" exact="event.param.$checked" />
+            <debug_text text="'NotificationFilter Options: Checkbox %s changed to %s. Echo: %s. Current filters: %s' .[event.param.$id, event.param.$checked, event.param.$echo, $filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+            <set_value name="$valueId" exact="event.param.$echo.$valueId" />
+            <do_if value="@$valueId != ''">
+              <do_if value="@$valueId == '$debugChance'">
+                <set_value name="$value" exact="if @event.param.$checked then 100 else 0" />
+                <set_value name="$filters.$debugChance" exact="$value" />
+                <set_value name="$notificationFiltersDebugChance" exact="$value" />
+                <remove_value name="$value" />
+              </do_if>
+              <do_else>
+                <set_value name="$filters.{@$valueId}" exact="event.param.$checked" />
+              </do_else>
             </do_if>
             <debug_text text="'NotificationFilter Options: Updated filters: %s' . [$filters]" chance="@$notificationFiltersDebugChance" filter="scripts" />
             <remove_value name="$id" />
-            <remove_value name="$value" />
             <remove_value name="$filters" />
           </actions>
         </cue>
