@@ -7,6 +7,12 @@ This mod introduces filtering functionality for some type of Notifications shown
 [*] Set minimum changes of [b]Relation[/b] to be displayed in [b]Notification Ticker[/b] and [b]Logbook[/b] (Separately).
 [*] Set a minimum amount of [b]Money[/b] transaction to be displayed in [b]Notification Ticker[/b].
 [*] Disable notifications related to [b]Crafting Progress[/b] in the [b]Notification Ticker[/b].
+[*] Disable notifications for collected items in the [b]Notification Ticker[/b]:
+[list]
+[*] [b]Ammo collected[/b], [b]Ammo received[/b]
+[*] [b]Inventory items collected[/b], [b]Dropped container collected[/b]
+[*] [b]Materials collected[/b], [b]Storage: 100% full[/b]
+[/list]
 [*] Disable notifications related to [b]Station Insufficient Funds[/b] in the [b]Notification Ticker[/b] and [b]Logbook[/b].
 [*] Disable notifications related to [b]Ship Constructed[/b] in the [b]Logbook[/b] based on the size or cost of the constructed ship.
 [/list]
@@ -36,6 +42,15 @@ Then, select the [b]Notification Filter[/b] item to open the filter menu.
 
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/notification_filter.png[/img]
 
+The menu contains the following sections:
+[list]
+[*] Relation Minimum Changes
+[*] Money Minimum Changes
+[*] Crafting Progress
+[*] Collected Items
+[*] Station Insufficient Funds
+[*] Ship Constructed
+[/list]
 [size=3][u][i]Relation Minimum Changes[/i][/u][/size]
 
 There are two different [b]Dropdowns[/b] to define the minimum change of [b]Relation[/b] to be displayed in [b]Notification ticker[/b] or recorder into [b]Logbook[/b]:
@@ -62,6 +77,17 @@ There is a [b]Checkbox[/b] to disable notifications related to [b]Crafting Progr
 There is an example of such notification in the image below:
 [img]https://raw.githubusercontent.com/chemodun/X4-NotificationFilter/refs/heads/main/docs/images/crafting_progress.png[/img]
 
+[size=3][u][i]Collected Items[/i][/u][/size]
+
+There are six [b]Checkboxes[/b] to individually disable notifications for items picked up by the player in the [b]Notification Ticker[/b]:
+[list]
+[*] [b]Ammo collected[/b]: Suppresses the [b]Ammo collected[/b] ticker notification.
+[*] [b]Ammo received[/b]: Suppresses the [b]Ammo received[/b] (crafted/granted) ticker notification.
+[*] [b]Inventory items collected[/b]: Suppresses the [b]Inventory item collected[/b] ticker notification.
+[*] [b]Dropped container collected[/b]: Suppresses the [b]Dropped container collected[/b] ticker notification.
+[*] [b]Materials collected[/b]: Suppresses the [b]Materials collected[/b] ticker notification.
+[*] [b]Storage: 100% full[/b]: Suppresses the [b]Storage: 100% full[/b] (cargo full) ticker notification.
+[/list]
 [size=3][u][i]Station Insufficient Funds[/i][/u][/size]
 
 There are two [b]Checkboxes[/b] to disable notifications related to [b]Station Insufficient Funds[/b] in the [b]Notification ticker[/b] and [b]Logbook[/b].
@@ -91,6 +117,13 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [/list]
 [size=3][u][b]Changelog[/b][/u][/size]
 
+[size=3][u][i][8.00.05] - 2026-03-26[/i][/u][/size]
+[list]
+[*] [b]Added[/b]
+[list]
+[*] New [b]Collected Items[/b] section with six individual filters for pick-up notifications: [b]Ammo collected[/b], [b]Ammo received[/b], [b]Inventory items collected[/b], [b]Dropped container collected[/b], [b]Materials collected[/b], [b]Storage: 100% full[/b].
+[/list]
+[/list]
 [size=3][u][i][8.00.04] - 2026-03-02[/i][/u][/size]
 [list]
 [*] [b]Added[/b]
