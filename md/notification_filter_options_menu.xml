@@ -353,7 +353,7 @@
               <signal_cue_instantly cue="md.Simple_Menu_API.Make_CheckBox"
                 param="table[
                 $id = 'Notification_Filter_CheckBox_%s' . [@$id],
-                $checked = @$data.{@$valueId} == true,
+                $checked = @$data.{@$valueId} == true or @$data.{@$valueId} == 100,
                 $col = @$col,
                 $colSpan = 1,
                 $x = 20,

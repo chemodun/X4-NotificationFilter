@@ -118,12 +118,14 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$moneyFilter" exact="$filters.$money * 1Cr" />
-        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
+        <set_value name="$notFiltered" exact="(event.param2 - event.param) gt $moneyFilter" />
+        <debug_text text="'NotificationFilter: Up. Money transfer: %s. Balance: %s. Filter: %s. Filtered: %s' . [event.param2 - event.param, event.param2, $moneyFilter, not $notFiltered]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="$notFiltered">
           <show_notification text="$message" sound="ui_mon_eve_money_up" />
         </do_if>
         <remove_value name="$filters" />
         <remove_value name="$moneyFilter" />
+        <remove_value name="$notFiltered" />
       </actions>
     </library>
 
@@ -131,12 +133,14 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <set_value name="$moneyFilter" exact="$filters.$money * 1Cr" />
-        <debug_text text="'NotificationFilter: Money transfer: %s. Balance: %s. Filter: %s' . [event.param2 - event.param, event.param2, $moneyFilter]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="abs(event.param - event.param2) gt $moneyFilter ">
+        <set_value name="$notFiltered" exact="(event.param - event.param2) gt $moneyFilter" />
+        <debug_text text="'NotificationFilter: Down. Money transfer: %s. Balance: %s. Filter: %s. Filtered: %s' . [event.param2 - event.param, event.param2, $moneyFilter, not $notFiltered]" chance="@$notificationFiltersDebugChance" filter="scripts" />
+        <do_if value="not $notFiltered">
           <show_notification text="$message" sound="ui_mon_eve_money_down" />
         </do_if>
         <remove_value name="$filters" />
         <remove_value name="$moneyFilter" />
+        <remove_value name="$notFiltered" />
       </actions>
     </library>
 
