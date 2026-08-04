@@ -10,16 +10,16 @@
             <set_value name="$filtered" exact="true" />
           </do_if>
           <do_else>
-            <do_if value="$object.isclass.{class.ship_s} and @$filters.$shipConstructedClassS == true">
+            <do_if value="$object.isclass.{class.ship_s} and @$filters.$shipConstructedClassS">
               <set_value name="$filtered" exact="true" />
             </do_if>
-            <do_if value="$object.isclass.{class.ship_m} and @$filters.$shipConstructedClassM == true">
+            <do_if value="$object.isclass.{class.ship_m} and @$filters.$shipConstructedClassM">
               <set_value name="$filtered" exact="true" />
             </do_if>
-            <do_if value="$object.isclass.{class.ship_l} and @$filters.$shipConstructedClassL == true">
+            <do_if value="$object.isclass.{class.ship_l} and @$filters.$shipConstructedClassL">
               <set_value name="$filtered" exact="true" />
             </do_if>
-            <do_if value="$object.isclass.{class.ship_xl} and @$filters.$shipConstructedClassXL == true">
+            <do_if value="$object.isclass.{class.ship_xl} and @$filters.$shipConstructedClassXL">
               <set_value name="$filtered" exact="true" />
             </do_if>
           </do_else>

@@ -1,35 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <diff>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_if[@value=&quot;event.name == 'event_player_collected_ammo'&quot;]/show_notification[@text=&quot;[{1015,42}, '', event.param.name, event.param2]&quot;]">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_if[@value=&quot;event.name == 'event_player_collected_ammo'&quot;]/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_DropCollected_AmmoCollected" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_elseif[@value=&quot;event.name == 'event_player_crafted_ammo'&quot;]/show_notification[@text=&quot;[{1015,50}, '', event.param.name, event.param2]&quot;]">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_elseif/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_DropCollected_AmmoReceived" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_if[@value='event.param.iscrafting']/do_if[@value='$products.count']/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_if[@value='$important?']/show_notification[@text='$tickertext']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_if[@value='event.param.iscrafting']/do_if/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_if[@value='$important?']/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_DropCollected_Ware_Important" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_else/show_notification[@text='$tickertext']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='DropCollected']/actions/do_else/do_else/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_DropCollected_Ware_Normal" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='CollectDropFailed_NoCargoStorage']/actions/show_notification[@text=&quot;[$caption, '', event.param.name, event.param2, $storagetext, '']&quot;]">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='CollectDropFailed_NoCargoStorage']/actions/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_CollectDropFailed_StorageFull" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerOpensCrate']/actions/do_if[@value='event.param.wares.count != 0']/do_all[@exact='$wares.count']/do_if[@value='$wares.{$i}.iscrafting']/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_if[@value='event.param2.{1} gt event.param2.{2}']/do_if[@value='notification.reputation_gained.active']/show_notification[@text='$tickertext']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerOpensCrate']/actions/do_if[@value='event.param.wares.count != 0']/do_all/do_if/include_actions[@ref='NotificationCraftingProgress']/@ref">md.Notification_Filter.Filter_NotificationCraftingProgress</replace>
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_if[@value='event.param2.{1} gt event.param2.{2}']/do_if/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Notification_up" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_else/do_if[@value='notification.reputation_lost.active']/show_notification[@text='$tickertext']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/do_else/do_if/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Notification_down" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/write_to_logbook[@category='general']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='BaseRelationChanged']/actions/write_to_logbook">
     <include_actions ref="md.Notification_Filter.Filter_BaseRelationChanged_Logbook" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerMoneyTransfer']/actions/do_if[@value='event.param &gt; event.param2']/do_if[@value='notification.money_subtracted.active']/show_notification[@text='$message']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerMoneyTransfer']/actions/do_if/do_if/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_layerMoneyTransfer_Notification_down" />
   </replace>
-  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerMoneyTransfer']/actions/do_else/do_if[@value='notification.money_added.active']/show_notification[@text='$message']">
+  <replace sel="/mdscript/cues/cue[@name='Init']/cues/cue[@name='PlayerMoneyTransfer']/actions/do_else/do_if/show_notification">
     <include_actions ref="md.Notification_Filter.Filter_layerMoneyTransfer_Notification_up" />
   </replace>
 </diff>

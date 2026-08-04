@@ -16,10 +16,16 @@ This mod introduces filtering functionality for some type of Notifications shown
 
 ## Requirements
 
-- **X4: Foundations**: Version 8.00HF3 or newer.
+- **X4: Foundations**: Version 8.00HF3 or newer and 9.00 or newer.
 - **Mod Support APIs**: Version 1.95 or higher by [SirNukes](https://next.nexusmods.com/profile/sirnukes?gameId=2659).
   - Available on Steam: [SirNukes Mod Support APIs](https://steamcommunity.com/sharedfiles/filedetails/?id=2042901274)
   - Available on Nexus Mods: [Mod Support APIs](https://www.nexusmods.com/x4foundations/mods/503)
+- **Options Helper**: Version 1.10 or higher by [Chem O`Dun](https://next.nexusmods.com/profile/ChemODun/mods?gameId=2659):
+  - Available on Steam: [Options Helper](https://steamcommunity.com/sharedfiles/filedetails/?id=3715253556)
+  - Available on Nexus Mods: [Options Helper](https://www.nexusmods.com/x4foundations/mods/2089)
+- **Print Extension List**: Version 1.01 or higher by [Chem O`Dun](https://next.nexusmods.com/profile/ChemODun/mods?gameId=2659):
+  - Available on Steam: [Print Extension List](https://steamcommunity.com/sharedfiles/filedetails/?id=3770927339)
+  - Available on Nexus Mods: [Print Extension List](https://www.nexusmods.com/x4foundations/mods/2191)
 
 ## Installation
 
@@ -112,6 +118,15 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 - [SirNukes](https://next.nexusmods.com/profile/sirnukes?gameId=2659) — for the `Mod Support APIs` that power the UI hooks.
 
 ## Changelog
+
+### [8.00.06] - 2026-08-??
+
+- **Fixed**
+  - Disabling Crafting Progress notifications does not work properly. Thanks to [Dell](https://steamcommunity.com/id/delleters) for reporting this issue and proposed solution.
+
+- **Changed**
+  - The options menu is now built with the `Options Helper` library, so its widgets look and behave the same as in the other mods of the series.
+  - `Print Extension List` is now required, so a debug log always states the game version and the list of enabled extensions.
 
 ### [8.00.05] - 2026-03-26
 

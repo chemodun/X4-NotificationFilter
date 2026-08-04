@@ -5,10 +5,10 @@
   <add sel="/aiscript/attention[@min='unknown']/actions">
     <set_value name="$filters" exact="@player.entity.$notificationFilters" />
     <debug_text text="'NotificationFilter: Insufficient funds notification triggered. Notification filter: %s, Logbook filter: %s. Log text: %s' .         [$filters.$insufficientFunds, $filters.$insufficientFundsLogbook, $logtext]" chance="$filters.$debugChance" filter="scripts" />
-    <do_if value="$filters.$insufficientFundsLogbook != true">
+    <do_if value="not $filters.$insufficientFundsLogbook">
       <write_to_logbook category="upkeep" object="this.container" title="$logtext" interaction="showonmap" />
     </do_if>
-    <do_if value="$filters.$insufficientFunds != true">
+    <do_if value="not $filters.$insufficientFunds">
       <show_notification text="[{1015, 28}, '', this.container.name, '', this.sector.name]" />
     </do_if>
     <remove_value name="$filters" />

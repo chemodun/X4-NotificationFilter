@@ -147,9 +147,8 @@
     <library name="Filter_NotificationCraftingProgress" purpose="include_actions">
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
-        <set_value name="$craftingProgress" exact="$filters.$craftingProgress * 1Cr" />
         <debug_text text="'NotificationFilter: Crafting progress: Products count: %s.' . [@$products.count]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="$craftingProgress != true">
+        <do_if value="not @$filters.$craftingProgress">
           <include_actions ref="md.Notifications.NotificationCraftingProgress" />
         </do_if>
         <remove_value name="$filters" />
@@ -161,7 +160,7 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <debug_text text="'NotificationFilter: Ammo collected filter: %s' . [$filters.$ammoCollected]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="$filters.$ammoCollected != true">
+        <do_if value="not $filters.$ammoCollected">
           <show_notification text="[{1015,42}, '', event.param.name, event.param2]" comment="Ammo collected" />
         </do_if>
         <remove_value name="$filters" />
@@ -172,7 +171,7 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <debug_text text="'NotificationFilter: Ammo received filter: %s' . [$filters.$ammoReceived]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="$filters.$ammoReceived != true">
+        <do_if value="not $filters.$ammoReceived">
           <show_notification text="[{1015,50}, '', event.param.name, event.param2]" comment="Ammo received" />
         </do_if>
         <remove_value name="$filters" />
@@ -225,7 +224,7 @@
       <actions>
         <include_actions ref="md.Notification_Filter.DefaultFilters" />
         <debug_text text="'NotificationFilter: Storage full filter: %s' . [$filters.$storageFull]" chance="@$notificationFiltersDebugChance" filter="scripts" />
-        <do_if value="$filters.$storageFull != true">
+        <do_if value="not $filters.$storageFull">
           <show_notification text="[$caption, '', event.param.name, event.param2, $storagetext, '']" priority="2" timeout="7s" />
         </do_if>
         <remove_value name="$filters" />
