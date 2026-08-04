@@ -119,7 +119,7 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 
 ## Changelog
 
-### [8.00.06] - 2026-08-??
+### [8.00.06] - 2026-08-05
 
 - **Fixed**
   - Disabling Crafting Progress notifications does not work properly. Thanks to [Dell](https://steamcommunity.com/id/delleters) for reporting this issue and proposed solution.
