@@ -3,12 +3,12 @@
   id="ws_3669797690"
   name="Notification Filter"
   author="Chem O`Dun"
-  version="80006"
+  version="80007"
   date="2026-08-05"
   save="false"
   sync="false"
   enabled="1"
-  lastupdate="1785884593"
+  lastupdate="1785957669"
   description="Filters out unwanted notifications.">
   <text language="7" description="Filters out unwanted notifications."></text>
   <!-- French -->
