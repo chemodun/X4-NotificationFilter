@@ -127,6 +127,13 @@ There is also a [b]Debug[/b] checkbox to enable debug messages for the notificat
 [/list]
 [size=130][u]Changelog[/u][/size]
 
+[size=125][u][8.00.07] - 2026-08-05[/u][/size]
+[list]
+[*] [b]Fixed[/b]
+[list]
+[*] Fixed an issue with sum filtering.
+[/list]
+[/list]
 [size=125][u][8.00.06] - 2026-08-05[/u][/size]
 [list]
 [*] [b]Fixed[/b]
