@@ -119,6 +119,11 @@ There is also a `Debug` checkbox to enable debug messages for the notifications 
 
 ## Changelog
 
+### [8.00.07] - 2026-08-05
+
+- **Fixed**
+  - Fixed an issue with sum filtering.
+
 ### [8.00.06] - 2026-08-05
 
 - **Fixed**
